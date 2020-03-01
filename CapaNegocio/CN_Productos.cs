@@ -15,6 +15,20 @@ namespace CapaNegocio
     {
         private CD_Productos objetoCD = new CD_Productos();
 
+        //Método Insertar que llama al método Insertar de la clase DArticulo
+        //de la CapaDatos
+        public static string Insertar(string nombre, string descripcion,string stock)
+        {
+            // Console.WriteLine("En insertar , nombre es " + nombre);
+
+            CD_Productos Obj = new CD_Productos();
+            Obj.Producto = nombre;
+            Obj.Descripcion = descripcion;
+            Obj.Stock = stock;
+
+            return Obj.Insertar(Obj);
+        }
+
         public DataTable MostrarProd()
         {
 

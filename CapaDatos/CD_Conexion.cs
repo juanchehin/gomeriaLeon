@@ -10,6 +10,8 @@ namespace CapaDatos
 {
     public class CD_Conexion
     {
+        MySqlConnection Con = new MySqlConnection("datasource =localhost;username = root;password =;database=gomerialeon");
+
         public CD_Conexion()
         {
             AbrirConexion();
@@ -17,11 +19,11 @@ namespace CapaDatos
         public MySqlConnection AbrirConexion()
         {
             // string ConnectString = "datasource = localhost;username = root;password =;database=gomerialeon";
-            MySqlConnection Con = new MySqlConnection("datasource =localhost;username = root;password =;database=gomerialeon");
+            // ConectionString => "datasource =localhost;username = root;password =;database=gomerialeon"
             try
             {
                 Con.Open();
-                // MessageBox.Show("Estas conectado!");
+                MessageBox.Show("Estas conectado!");
                 return Con;
             }
             catch
@@ -34,7 +36,7 @@ namespace CapaDatos
         public MySqlConnection CerrarConexion()
         {
             // string ConnectString = "datasource = localhost;username = root;password =;database=gomerialeon";
-            MySqlConnection Con = new MySqlConnection("datasource = localhost;username = root;password =;database=gomerialeon");
+            // MySqlConnection Con = new MySqlConnection("datasource = localhost;username = root;password =;database=gomerialeon");
             try
             {
                 Con.Close();

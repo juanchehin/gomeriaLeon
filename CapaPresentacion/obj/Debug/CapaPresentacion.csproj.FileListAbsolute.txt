@@ -14,9 +14,9 @@ D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\MySql.Data.xml
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\Google.Protobuf.xml
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\Renci.SshNet.xml
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.csprojAssemblyReference.cache
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.Form1.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formProductos.resources
