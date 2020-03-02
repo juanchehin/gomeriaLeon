@@ -20,3 +20,5 @@ D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacio
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formProductos.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formEmpleados.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.frmPrincipal.resources

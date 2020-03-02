@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEmpleados.Designer.cs">
+      <DependentUpon>formEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="formProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formProductos.Designer.cs">
       <DependentUpon>formProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formEmpleados.resx">
+      <DependentUpon>formEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formProductos.resx">
       <DependentUpon>formProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,6 +109,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empleado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empleado1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\labour.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

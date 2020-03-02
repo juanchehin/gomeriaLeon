@@ -120,9 +120,6 @@ namespace CapaPresentacion
                     {
                         rpta = CN_Productos.Insertar(this.txtNombre.Text.Trim(), this.txtDescripcion.Text.Trim(),
                             this.txtStock.Text.Trim());
-
-                        // Convert.ToInt32(this.txtIdarticulo.Text)
-
                     }
                     else
                     {
