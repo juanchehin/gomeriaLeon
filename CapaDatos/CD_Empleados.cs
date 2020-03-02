@@ -31,6 +31,7 @@ namespace CapaDatos
         public string Direccion { get => _Direccion; set => _Direccion = value; }
         public string Telefono { get => _Telefono; set => _Telefono = value; }
         public string FechaNac { get => _FechaNac; set => _FechaNac = value; }
+        public string TextoBuscar { get => _TextoBuscar; set => _TextoBuscar = value; }
 
         //Constructores
         public CD_Empleados()

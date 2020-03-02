@@ -23,7 +23,7 @@ namespace CapaDatos
             try
             {
                 Con.Open();
-                MessageBox.Show("Estas conectado!");
+                // MessageBox.Show("Estas conectado!");
                 return Con;
             }
             catch

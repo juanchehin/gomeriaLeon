@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="CN_Empleados.cs" />
     <Compile Include="CN_Productos.cs" />
+    <Compile Include="CN_Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

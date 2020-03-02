@@ -103,9 +103,29 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FB_IMG_1576455035187_2_ {
+            get {
+                object obj = ResourceManager.GetObject("FB_IMG_1576455035187(2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap labour {
             get {
                 object obj = ResourceManager.GetObject("labour", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap login {
+            get {
+                object obj = ResourceManager.GetObject("login", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +146,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap Logo_LeonCuchillos {
             get {
                 object obj = ResourceManager.GetObject("Logo_LeonCuchillos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout_1_ {
+            get {
+                object obj = ResourceManager.GetObject("logout(1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

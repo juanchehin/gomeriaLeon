@@ -35,6 +35,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtSalir = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -108,6 +109,17 @@
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 18;
             this.label7.Text = "Trabajos";
+            // 
+            // txtSalir
+            // 
+            this.txtSalir.BackgroundImage = global::CapaPresentacion.Properties.Resources.logout_1_;
+            this.txtSalir.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.txtSalir.Location = new System.Drawing.Point(750, 408);
+            this.txtSalir.Name = "txtSalir";
+            this.txtSalir.Size = new System.Drawing.Size(38, 30);
+            this.txtSalir.TabIndex = 19;
+            this.txtSalir.UseVisualStyleBackColor = true;
+            this.txtSalir.Click += new System.EventHandler(this.txtSalir_Click);
             // 
             // button7
             // 
@@ -190,6 +202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtSalir);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -231,5 +244,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button txtSalir;
     }
 }

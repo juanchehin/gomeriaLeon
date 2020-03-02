@@ -31,5 +31,10 @@ namespace CapaPresentacion
         {
             formEmpleados frm = new formEmpleados();
         }
+
+        private void txtSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

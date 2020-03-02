@@ -68,6 +68,7 @@
     <Compile Include="CD_Conexion.cs" />
     <Compile Include="CD_Empleados.cs" />
     <Compile Include="CD_Productos.cs" />
+    <Compile Include="CD_Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

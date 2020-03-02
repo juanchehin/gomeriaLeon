@@ -119,6 +119,7 @@ namespace CapaDatos
 
                 comando.Parameters.Add(pStock);
 
+                Console.WriteLine("rpta es : " + rpta );
 
                 // Console.WriteLine("el comando es : " + comando.CommandText[0]);
                 //Ejecutamos nuestro comando
