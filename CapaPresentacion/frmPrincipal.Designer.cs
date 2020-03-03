@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,11 +37,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtSalir = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnTrabajos = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
+            this.btnCompras = new System.Windows.Forms.Button();
+            this.btnProveedores = new System.Windows.Forms.Button();
+            this.btnProductos = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -121,51 +122,55 @@
             this.txtSalir.UseVisualStyleBackColor = true;
             this.txtSalir.Click += new System.EventHandler(this.txtSalir_Click);
             // 
-            // button7
+            // btnTrabajos
             // 
-            this.button7.Image = global::CapaPresentacion.Properties.Resources.labour;
-            this.button7.Location = new System.Drawing.Point(106, 302);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(147, 114);
-            this.button7.TabIndex = 10;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnTrabajos.Image = global::CapaPresentacion.Properties.Resources.labour;
+            this.btnTrabajos.Location = new System.Drawing.Point(106, 302);
+            this.btnTrabajos.Name = "btnTrabajos";
+            this.btnTrabajos.Size = new System.Drawing.Size(147, 114);
+            this.btnTrabajos.TabIndex = 10;
+            this.btnTrabajos.UseVisualStyleBackColor = true;
+            this.btnTrabajos.Click += new System.EventHandler(this.btnTrabajos_Click);
             // 
-            // button6
+            // btnVentas
             // 
-            this.button6.Image = global::CapaPresentacion.Properties.Resources.sale;
-            this.button6.Location = new System.Drawing.Point(558, 153);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(147, 114);
-            this.button6.TabIndex = 9;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnVentas.Image = global::CapaPresentacion.Properties.Resources.sale;
+            this.btnVentas.Location = new System.Drawing.Point(558, 153);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Size = new System.Drawing.Size(147, 114);
+            this.btnVentas.TabIndex = 9;
+            this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
-            // button5
+            // btnCompras
             // 
-            this.button5.Image = global::CapaPresentacion.Properties.Resources.cart;
-            this.button5.Location = new System.Drawing.Point(332, 153);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(147, 114);
-            this.button5.TabIndex = 8;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCompras.Image = global::CapaPresentacion.Properties.Resources.cart;
+            this.btnCompras.Location = new System.Drawing.Point(332, 153);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Size = new System.Drawing.Size(147, 114);
+            this.btnCompras.TabIndex = 8;
+            this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
-            // button4
+            // btnProveedores
             // 
-            this.button4.Image = global::CapaPresentacion.Properties.Resources.team;
-            this.button4.Location = new System.Drawing.Point(106, 153);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 114);
-            this.button4.TabIndex = 7;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnProveedores.Image = global::CapaPresentacion.Properties.Resources.team;
+            this.btnProveedores.Location = new System.Drawing.Point(106, 153);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Size = new System.Drawing.Size(147, 114);
+            this.btnProveedores.TabIndex = 7;
+            this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
-            // button3
+            // btnProductos
             // 
-            this.button3.Image = global::CapaPresentacion.Properties.Resources.box;
-            this.button3.Location = new System.Drawing.Point(558, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 114);
-            this.button3.TabIndex = 6;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnProductos.Image = global::CapaPresentacion.Properties.Resources.box;
+            this.btnProductos.Location = new System.Drawing.Point(558, 12);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(147, 114);
+            this.btnProductos.TabIndex = 6;
+            this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnEmpleados
             // 
@@ -210,14 +215,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnTrabajos);
+            this.Controls.Add(this.btnVentas);
+            this.Controls.Add(this.btnCompras);
+            this.Controls.Add(this.btnProveedores);
+            this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.btnEmpleados);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPrincipal";
             this.Text = "                                                                                 " +
     "              ..:: Gomeria Leon ::..";
@@ -232,11 +238,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnEmpleados;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnProductos;
+        private System.Windows.Forms.Button btnProveedores;
+        private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Button btnTrabajos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

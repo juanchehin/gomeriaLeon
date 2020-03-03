@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formClientes.Designer.cs">
+      <DependentUpon>formClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCompras.Designer.cs">
+      <DependentUpon>formCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="formEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +76,30 @@
     <Compile Include="formProductos.Designer.cs">
       <DependentUpon>formProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="formProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formProveedores.Designer.cs">
+      <DependentUpon>formProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTrabajos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTrabajos.Designer.cs">
+      <DependentUpon>formTrabajos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTrabajosEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTrabajosEmpleado.Designer.cs">
+      <DependentUpon>formTrabajosEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formVentas.Designer.cs">
+      <DependentUpon>formVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +108,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formClientes.resx">
+      <DependentUpon>formClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formCompras.resx">
+      <DependentUpon>formCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formEmpleados.resx">
       <DependentUpon>formEmpleados.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +122,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formProductos.resx">
       <DependentUpon>formProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formProveedores.resx">
+      <DependentUpon>formProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTrabajos.resx">
+      <DependentUpon>formTrabajos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTrabajosEmpleado.resx">
+      <DependentUpon>formTrabajosEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formVentas.resx">
+      <DependentUpon>formVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

@@ -31,6 +31,10 @@ namespace CapaPresentacion
         private void MostrarEmpleados()
         {
             dataListadoEmpleados.DataSource = objetoCN.MostrarEmp();
+            // Oculto el IdEmpleado. Lo puedo seguir usando como parametro de eliminacion
+            dataListadoEmpleados.Columns[1].Visible = false;
+
+            // dataListadoEmpleados.Columns[0].ReadOnly = true;
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
@@ -170,5 +174,114 @@ namespace CapaPresentacion
             this.Habilitar(true);
             this.txtNombre.Focus();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Eliminar los Registros", "Gomeria Leon", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo;
+                    string Rpta = "";
+
+                    foreach (DataGridViewRow row in dataListadoEmpleados.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            Rpta = CN_Empleados.Eliminar(Convert.ToInt32(Codigo));
+
+                            if (Rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se Eliminó Correctamente el registro");
+                            }
+                            else
+                            {
+                                this.MensajeError(Rpta);
+                            }
+
+                        }
+                    }
+                    this.MostrarEmpleados();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void dataListadoEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Console.WriteLine("e.ColumnIndex " + e.ColumnIndex);    // Dice que columna se hizo click
+            if (e.ColumnIndex == dataListadoEmpleados.Columns["Marcar"].Index)
+            {
+                DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)dataListadoEmpleados.Rows[e.RowIndex].Cells["Marcar"];
+                ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
+            }
+        }
+
+        private void btnAgregarTrabajo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea agregar un nuevo trabajo", "Gomeria Leon", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                // Si el usuario ingreso que 'si'
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo;
+                    // string Rpta = "";
+
+                    foreach (DataGridViewRow row in dataListadoEmpleados.Rows)
+                    {
+                        // Pregunta si esta tildada , Celda = 1
+                        if (Convert.ToBoolean(row.Cells[0].Value))  // Convierte a boleano la columna con los checkbox
+                        {
+                            /* dataListadoEmpleados.Columns["Marcar"].ReadOnly = true;
+
+                            dataListadoEmpleados.Columns["Marcar"].DefaultCellStyle.BackColor = Color.LightGray;
+
+                            dataListadoEmpleados.Columns["Marcar"].DefaultCellStyle.ForeColor = Color.DarkGray;
+
+                            dataListadoEmpleados.Columns["Marcar"].DefaultCellStyle.SelectionBackColor = Color.LightGray;
+
+                            dataListadoEmpleados.Columns["Marcar"].DefaultCellStyle.SelectionForeColor = Color.DarkGray; */
+
+                            Codigo = Convert.ToString(row.Cells[1].Value);  // Transforma a string el valor de la celda 1 (IdEmpleado o el nombre VER BIEN)
+
+                            Console.WriteLine("Codigo es : " + Codigo);
+
+                            // En 'Codigo' tengo el valor de la celda tildada
+                            formTrabajosEmpleado frm = new formTrabajosEmpleado(Codigo);
+                            frm.MdiParent = this.MdiParent;
+                            frm.Show();
+
+                            // Rpta = CN_Empleados.AgregarTrabajo(Convert.ToInt32(Codigo));  // Pasa al metodo ELIMINAR el valor de la columna 1
+
+                            /*if (Rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se Eliminó Correctamente el registro");
+                            }
+                            else
+                            {
+                                this.MensajeError(Rpta);
+                            }*/
+
+                        }
+                    }
+                    // this.MostrarEmpleados();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
     }
 }

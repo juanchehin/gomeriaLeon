@@ -151,5 +151,42 @@ namespace CapaDatos
             return rpta;
 
         }
+        
+        // Metodo ELIMINAR Empleado (da de baja)
+        public string Eliminar(CD_Empleados Empleado)
+        {
+            string rpta = "";
+            try
+            {
+
+
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "bsp_eliminar_empleado";
+
+                MySqlParameter pIdEmpleado = new MySqlParameter();
+                pIdEmpleado.ParameterName = "@pIdEmpleado";
+                pIdEmpleado.MySqlDbType = MySqlDbType.Int32;
+                // pIdEmpleado.Size = 60;
+                pIdEmpleado.Value = Empleado.IdEmpleado;
+                comando.Parameters.Add(pIdEmpleado);
+
+                //Ejecutamos nuestro comando
+
+                rpta = comando.ExecuteNonQuery() == 1 ? "OK" : "NO se Elimino el Registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                //if (conexion. == ConnectionState.Open) 
+                conexion.CerrarConexion();
+            }
+            return rpta;
+        }
     }
 }

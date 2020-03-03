@@ -19,22 +19,56 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            formClientes frm = new formClientes();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             formProductos frm = new formProductos();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
             formEmpleados frm = new formEmpleados();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
 
         private void txtSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            formProveedores frm = new formProveedores();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            formCompras frm = new formCompras();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            formVentas frm = new formVentas();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void btnTrabajos_Click(object sender, EventArgs e)
+        {
+            formTrabajos frm = new formTrabajos();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
     }
 }

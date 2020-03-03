@@ -32,6 +32,8 @@ namespace CapaPresentacion
         private void MostrarProductos()
         {
             dataListadoProductos.DataSource = objetoCN.MostrarProd();
+            // Oculto el IdProducto. Lo puedo seguir usando como parametro de eliminacion
+            dataListadoProductos.Columns[1].Visible = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -172,6 +174,54 @@ namespace CapaPresentacion
         private void MensajeError(string mensaje)
         {
             MessageBox.Show(mensaje, "Gomeria Leon", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dataListadoProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataListadoProductos.Columns["Marcar"].Index)
+            {
+                DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)dataListadoProductos.Rows[e.RowIndex].Cells["Marcar"];
+                ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Eliminar el/los productos", "Gomeria Leon", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo;
+                    string Rpta = "";
+
+                    foreach (DataGridViewRow row in dataListadoProductos.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            Rpta = CN_Productos.Eliminar(Convert.ToInt32(Codigo));
+
+                            if (Rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se Eliminó Correctamente el/los productos");
+                            }
+                            else
+                            {
+                                this.MensajeError(Rpta);
+                            }
+
+                        }
+                    }
+                    this.MostrarProductos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

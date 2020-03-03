@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formProductos));
             this.dataListadoProductos = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Marcar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabListado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -51,28 +51,33 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabListado.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataListadoProductos
             // 
+            this.dataListadoProductos.AllowUserToAddRows = false;
+            this.dataListadoProductos.AllowUserToDeleteRows = false;
             this.dataListadoProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataListadoProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Eliminar});
-            this.dataListadoProductos.Location = new System.Drawing.Point(6, 75);
+            this.Marcar});
+            this.dataListadoProductos.Location = new System.Drawing.Point(3, 72);
             this.dataListadoProductos.Name = "dataListadoProductos";
             this.dataListadoProductos.Size = new System.Drawing.Size(720, 240);
             this.dataListadoProductos.TabIndex = 0;
+            this.dataListadoProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListadoProductos_CellContentClick);
             // 
-            // Eliminar
+            // Marcar
             // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
+            this.Marcar.HeaderText = "Marcar";
+            this.Marcar.Name = "Marcar";
             // 
             // pictureBox1
             // 
@@ -126,6 +131,7 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtBuscar
             // 
@@ -266,17 +272,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(211, -3);
+            this.label1.Location = new System.Drawing.Point(243, -3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(350, 91);
             this.label1.TabIndex = 3;
             this.label1.Text = "Productos";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::CapaPresentacion.Properties.Resources.box;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Location = new System.Drawing.Point(705, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(65, 70);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
             // 
             // formProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabListado);
             this.Controls.Add(this.pictureBox1);
@@ -293,6 +310,7 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,7 +324,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
@@ -322,6 +339,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotalProductos;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Marcar;
     }
 }
 

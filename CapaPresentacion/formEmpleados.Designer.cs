@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEmpleados));
             this.dataListadoEmpleados = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnVerTrabajos = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.monthCalendarFechaNac = new System.Windows.Forms.MonthCalendar();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
@@ -46,27 +52,33 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.monthCalendarFechaNac = new System.Windows.Forms.MonthCalendar();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Marcar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoEmpleados)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataListadoEmpleados
             // 
+            this.dataListadoEmpleados.AllowUserToAddRows = false;
+            this.dataListadoEmpleados.AllowUserToDeleteRows = false;
+            this.dataListadoEmpleados.AllowUserToOrderColumns = true;
             this.dataListadoEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataListadoEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Marcar});
             this.dataListadoEmpleados.Location = new System.Drawing.Point(17, 43);
             this.dataListadoEmpleados.Name = "dataListadoEmpleados";
+            this.dataListadoEmpleados.ReadOnly = true;
             this.dataListadoEmpleados.Size = new System.Drawing.Size(700, 269);
             this.dataListadoEmpleados.TabIndex = 0;
+            this.dataListadoEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListadoEmpleados_CellContentClick);
             // 
             // tabControl1
             // 
@@ -80,6 +92,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnVerTrabajos);
             this.tabPage1.Controls.Add(this.btnEliminar);
             this.tabPage1.Controls.Add(this.txtBuscar);
             this.tabPage1.Controls.Add(this.btnBuscar);
@@ -91,6 +104,26 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnVerTrabajos
+            // 
+            this.btnVerTrabajos.Location = new System.Drawing.Point(454, 14);
+            this.btnVerTrabajos.Name = "btnVerTrabajos";
+            this.btnVerTrabajos.Size = new System.Drawing.Size(129, 23);
+            this.btnVerTrabajos.TabIndex = 4;
+            this.btnVerTrabajos.Text = "Ver Trabajos";
+            this.btnVerTrabajos.UseVisualStyleBackColor = true;
+            this.btnVerTrabajos.Click += new System.EventHandler(this.btnAgregarTrabajo_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(336, 14);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtBuscar
             // 
@@ -141,6 +174,32 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Empleados";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(303, 253);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(114, 253);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnNuevo.TabIndex = 12;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
+            // 
+            // monthCalendarFechaNac
+            // 
+            this.monthCalendarFechaNac.Location = new System.Drawing.Point(432, 140);
+            this.monthCalendarFechaNac.Name = "monthCalendarFechaNac";
+            this.monthCalendarFechaNac.TabIndex = 11;
             // 
             // txtTelefono
             // 
@@ -231,16 +290,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nombres : ";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::CapaPresentacion.Properties.Resources.logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 57);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -251,51 +300,45 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Empleados";
             // 
-            // monthCalendarFechaNac
+            // pictureBox2
             // 
-            this.monthCalendarFechaNac.Location = new System.Drawing.Point(432, 140);
-            this.monthCalendarFechaNac.Name = "monthCalendarFechaNac";
-            this.monthCalendarFechaNac.TabIndex = 11;
+            this.pictureBox2.BackgroundImage = global::CapaPresentacion.Properties.Resources.Empleado1;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Location = new System.Drawing.Point(683, 10);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(68, 77);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
-            // btnNuevo
+            // pictureBox1
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(114, 253);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 12;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
+            this.pictureBox1.BackgroundImage = global::CapaPresentacion.Properties.Resources.logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 57);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
-            // btnGuardar
+            // Marcar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(303, 253);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 13;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(336, 14);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.Marcar.HeaderText = "Marcar";
+            this.Marcar.Name = "Marcar";
+            this.Marcar.ReadOnly = true;
             // 
             // formEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formEmpleados";
-            this.Text = "formEmpleados";
+            this.Text = "                                                                                 " +
+    "                    ..:: Empleados ::..";
             this.Load += new System.EventHandler(this.formEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoEmpleados)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -304,6 +347,7 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -336,5 +380,8 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnVerTrabajos;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Marcar;
     }
 }

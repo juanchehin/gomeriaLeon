@@ -36,5 +36,11 @@ namespace CapaNegocio
             tabla = objetoCD.Mostrar();
             return tabla;
         }
+        public static string Eliminar(int IdProducto)
+        {
+            CD_Productos Obj = new CD_Productos();
+            Obj.IdProducto = IdProducto;
+            return Obj.Eliminar(Obj);
+        }
     }
 }

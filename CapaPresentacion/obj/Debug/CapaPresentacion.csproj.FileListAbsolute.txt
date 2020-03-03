@@ -23,3 +23,9 @@ D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacio
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formEmpleados.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.frmPrincipal.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formLogin.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formClientes.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formCompras.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formProveedores.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formTrabajos.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formVentas.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formTrabajosEmpleado.resources
