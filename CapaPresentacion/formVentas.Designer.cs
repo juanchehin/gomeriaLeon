@@ -49,6 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxProducto = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoEmpleados)).BeginInit();
@@ -149,6 +151,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBoxProducto);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.btnNuevo);
             this.groupBox1.Controls.Add(this.monthCalendarFechaNac);
@@ -162,7 +166,7 @@
             this.groupBox1.Size = new System.Drawing.Size(691, 293);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Empleados";
+            this.groupBox1.Text = "Ventas";
             // 
             // btnGuardar
             // 
@@ -190,16 +194,16 @@
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(114, 85);
+            this.txtApellidos.Location = new System.Drawing.Point(114, 181);
             this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(100, 20);
+            this.txtApellidos.Size = new System.Drawing.Size(121, 20);
             this.txtApellidos.TabIndex = 7;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(114, 32);
+            this.txtNombre.Location = new System.Drawing.Point(114, 105);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.Size = new System.Drawing.Size(121, 20);
             this.txtNombre.TabIndex = 6;
             // 
             // label7
@@ -214,7 +218,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 85);
+            this.label3.Location = new System.Drawing.Point(35, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 1;
@@ -223,7 +227,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 32);
+            this.label2.Location = new System.Drawing.Point(35, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 0;
@@ -248,6 +252,23 @@
             this.pictureBox1.Size = new System.Drawing.Size(55, 57);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Producto : ";
+            // 
+            // comboBoxProducto
+            // 
+            this.comboBoxProducto.FormattingEnabled = true;
+            this.comboBoxProducto.Location = new System.Drawing.Point(114, 40);
+            this.comboBoxProducto.Name = "comboBoxProducto";
+            this.comboBoxProducto.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxProducto.TabIndex = 15;
             // 
             // formVentas
             // 
@@ -298,5 +319,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBoxProducto;
     }
 }

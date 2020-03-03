@@ -40,7 +40,7 @@ namespace CapaDatos
             try
             {
                 Con.Close();
-                MessageBox.Show("Conexion cerrada!");
+                // MessageBox.Show("Conexion cerrada!");
                 return Con;
             }
             catch (Exception e)

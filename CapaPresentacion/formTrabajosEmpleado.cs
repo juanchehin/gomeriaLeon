@@ -67,8 +67,8 @@ namespace CapaPresentacion
         //Limpiar todos los controles del formulario
         private void Limpiar()
         {
-            this.comboBoxTrabajos.Text = string.Empty;
-            this.txtCantidad.Text = string.Empty;
+            /*this.comboBoxTrabajos.Text = string.Empty;
+            this.txtCantidad.Text = string.Empty;*/
             
         }
         
@@ -79,7 +79,7 @@ namespace CapaPresentacion
             this.Botones();
             this.Limpiar();
             this.Habilitar(true);
-            this.comboBoxTrabajos.Focus();
+            //this.comboBoxTrabajos.Focus();
         }
         //Habilitar los botones
         private void Botones()
@@ -87,16 +87,16 @@ namespace CapaPresentacion
             if (this.IsNuevo || this.IsEditar) //Alt + 124
             {
                 this.Habilitar(true);
-                this.btnNuevo.Enabled = false;
-                this.btnGuardar.Enabled = true;
+                //this.btnNuevo.Enabled = false;
+                //this.btnGuardar.Enabled = true;
                 //this.btnEditar.Enabled = false;
                 //this.btnCancelar.Enabled = true;
             }
             else
             {
                 this.Habilitar(false);
-                this.btnNuevo.Enabled = true;
-                this.btnGuardar.Enabled = false;
+                //this.btnNuevo.Enabled = true;
+                //this.btnGuardar.Enabled = false;
                 //this.btnEditar.Enabled = true;
                 //this.btnCancelar.Enabled = false;
             }
@@ -106,13 +106,13 @@ namespace CapaPresentacion
         private void Habilitar(bool valor)
         {
             // this.txtId.ReadOnly = !valor;
-            this.comboBoxTrabajos.Enabled = !valor;
-            this.txtCantidad.ReadOnly = !valor;
+            //this.comboBoxTrabajos.Enabled = !valor;
+            //this.txtCantidad.ReadOnly = !valor;
             //this.txtStock.Enabled = valor;
         }
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 string rpta = "";
                 if (this.comboBoxTrabajos.SelectedIndex == -1 || this.txtCantidad.Text == string.Empty)
@@ -121,55 +121,56 @@ namespace CapaPresentacion
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
                     errorIcono.SetError(txtStock, "Ingrese un Valor");
                     errorIcono.SetError(txtDescripcion, "Ingrese un Valor"); */
+            /*}
+            else
+            {
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+
+                if (this.IsNuevo)
+                {
+                    // rpta = CN_TrabajosEmpleado.Insertar(this.comboBoxTrabajos.SelectedItem, this.Empl .Text.Trim(), this.txtDescripcion.Text.Trim(),
+                    //     this.txtStock.Text.Trim());
                 }
                 else
                 {
-                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    /*rpta = CN_Productos.Editar(Convert.ToInt32(this.txtIdarticulo.Text),
+                        this.txtCodigo.Text, this.txtNombre.Text.Trim().ToUpper(),
+                        this.txtDescripcion.Text.Trim(), imagen, Convert.ToInt32(this.txtIdcategoria.Text),
+                        Convert.ToInt32(this.cbIdpresentacion.SelectedValue)); */
+            /*}
 
-                    if (this.IsNuevo)
-                    {
-                        // rpta = CN_TrabajosEmpleado.Insertar(this.comboBoxTrabajos.SelectedItem, this.Empl .Text.Trim(), this.txtDescripcion.Text.Trim(),
-                        //     this.txtStock.Text.Trim());
-                    }
-                    else
-                    {
-                        /*rpta = CN_Productos.Editar(Convert.ToInt32(this.txtIdarticulo.Text),
-                            this.txtCodigo.Text, this.txtNombre.Text.Trim().ToUpper(),
-                            this.txtDescripcion.Text.Trim(), imagen, Convert.ToInt32(this.txtIdcategoria.Text),
-                            Convert.ToInt32(this.cbIdpresentacion.SelectedValue)); */
-                    }
-                
-                    if (rpta.Equals("OK"))
-                    {
-                        if (this.IsNuevo)
-                        {
-                            this.MensajeOk("Se Insertó de forma correcta el registro");
-                        }
-                        else
-                        {
-                            this.MensajeOk("Se Actualizó de forma correcta el registro");
-                        }
-                    }
-                    else
-                    {
-                        this.MensajeError(rpta);
-                    }
-
-                    this.IsNuevo = false;
-                    this.IsEditar = false;
-                    this.Botones();
-                    this.Limpiar();
-                    // Enviar parametro recibido desde el otro formulario
-                    this.MostrarTrabajosEmpleado(this.parametroTE);
-                    }
-                }
-                catch (Exception ex)
+            if (rpta.Equals("OK"))
+            {
+                if (this.IsNuevo)
                 {
-                MessageBox.Show(ex.Message + ex.StackTrace);
+                    this.MensajeOk("Se Insertó de forma correcta el registro");
                 }
-     }
+                else
+                {
+                    this.MensajeOk("Se Actualizó de forma correcta el registro");
+                }
+            }
+            else
+            {
+                this.MensajeError(rpta);
+            }
 
-    //Mostrar Mensaje de Confirmación
+            this.IsNuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            // Enviar parametro recibido desde el otro formulario
+            this.MostrarTrabajosEmpleado(this.parametroTE);
+            }
+        }
+        catch (Exception ex)
+        {
+        MessageBox.Show(ex.Message + ex.StackTrace);
+        }*/
+
+        }
+
+        //Mostrar Mensaje de Confirmación
         private void MensajeOk(string mensaje)
         {
             MessageBox.Show(mensaje, "Gomeria Leon", MessageBoxButtons.OK, MessageBoxIcon.Information);

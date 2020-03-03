@@ -18,6 +18,7 @@ namespace CapaPresentacion
 
         private bool IsNuevo = false;
         private bool IsEditar = false;
+        private int IdProducto;
         public formProductos()
         {
             InitializeComponent();
@@ -32,8 +33,29 @@ namespace CapaPresentacion
         private void MostrarProductos()
         {
             dataListadoProductos.DataSource = objetoCN.MostrarProd();
+            // this.IdProducto = dataListadoProductos.Rows[0].Cells[1].Value.ToString();
+
+            // Console.WriteLine("IdProducto es : " +  this.IdProducto);
             // Oculto el IdProducto. Lo puedo seguir usando como parametro de eliminacion
             dataListadoProductos.Columns[1].Visible = false;
+        }
+
+
+        // Carga los valores en el formulario para que se modifiquen los que se desean
+        private void MostrarProducto(int IdProducto)
+        {
+            Console.WriteLine("El IDproducto recibido es : " + IdProducto);
+            dataListadoProductos.DataSource = objetoCN.MostrarProducto(IdProducto);
+            Console.WriteLine("El dataListadoProductos.Rows[0].Cells[6].Value.ToString() recibido es : " + dataListadoProductos.Rows[0].Cells[1]);
+            // Oculto el IdProducto. Lo puedo seguir usando como parametro de eliminacion
+            // dataListadoProductos.Columns[1].Visible = false;
+            /*
+            txtNombre.Text = dataListadoProductos.Rows[0].Cells[6].Value.ToString();
+            /// blTelefono.Text = dataListadoTrabajosEmpleado.Rows[0].Cells[3].Value.ToString();
+            txtCodigo.Text = dataListadoProductos.Rows[0].Cells[1].Value.ToString();
+            txtStock.Text = dataListadoProductos.Rows[0].Cells[1].Value.ToString();
+            txtPrecioCompra.Text = dataListadoProductos.Rows[0].Cells[1].Value.ToString();
+            txtPrecioVenta.Text = dataListadoProductos.Rows[3].Cells[1].Value.ToString();*/
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -80,7 +102,7 @@ namespace CapaPresentacion
                 this.Habilitar(true);
                 this.btnNuevo.Enabled = false;
                 this.btnGuardar.Enabled = true;
-                this.btnEditar.Enabled = false;
+                // this.btnEditar.Enabled = false;
                 this.btnCancelar.Enabled = true;
             }
             else
@@ -88,7 +110,7 @@ namespace CapaPresentacion
                 this.Habilitar(false);
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
-                this.btnEditar.Enabled = true;
+                // this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
             }
 
@@ -107,7 +129,7 @@ namespace CapaPresentacion
             try
             {
                 string rpta = "";
-                if (this.txtNombre.Text == string.Empty || this.txtStock.Text == string.Empty || this.txtDescripcion.Text == string.Empty)
+                if (this.txtNombre.Text == string.Empty || this.txtStock.Text == string.Empty || this.txtPrecioCompra.Text == string.Empty || this.txtPrecioVenta.Text == string.Empty || this.txtCodigo.Text == string.Empty)
                 {
                     MensajeError("Falta ingresar algunos datos");
                     /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
@@ -120,11 +142,16 @@ namespace CapaPresentacion
 
                     if (this.IsNuevo)
                     {
-                        rpta = CN_Productos.Insertar(this.txtNombre.Text.Trim(), this.txtDescripcion.Text.Trim(),
+                        rpta = CN_Productos.Insertar(this.txtNombre.Text.Trim(), this.txtCodigo.Text.Trim(), this.txtPrecioCompra.Text.Trim(), 
+                            this.txtPrecioVenta.Text.Trim(), this.txtDescripcion.Text.Trim(),
                             this.txtStock.Text.Trim());
                     }
                     else
                     {
+                        rpta = CN_Productos.Editar(this.IdProducto,this.txtNombre.Text.Trim(),this.txtCodigo.Text.Trim(),
+                            this.txtPrecioCompra.Text.Trim(),this.txtPrecioVenta.Text.Trim(),this.txtDescripcion.Text.Trim()
+                            ,this.txtStock.Text.Trim());
+
                         /*rpta = CN_Productos.Editar(Convert.ToInt32(this.txtIdarticulo.Text),
                             this.txtCodigo.Text, this.txtNombre.Text.Trim().ToUpper(),
                             this.txtDescripcion.Text.Trim(), imagen, Convert.ToInt32(this.txtIdcategoria.Text),
@@ -140,6 +167,8 @@ namespace CapaPresentacion
                         else
                         {
                             this.MensajeOk("Se Actualizó de forma correcta el registro");
+                            this.tabListado.SelectedTab = tabPage1;
+                            this.IsEditar = false;
                         }
                     }
                     else
@@ -182,6 +211,7 @@ namespace CapaPresentacion
             {
                 DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)dataListadoProductos.Rows[e.RowIndex].Cells["Marcar"];
                 ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
+                // Console.WriteLine("dataListadoProductos.Rows[e.RowIndex].Cells luego de tildar es :" + dataListadoProductos.Rows[e.RowIndex].Cells["Marcar"]);
             }
         }
 
@@ -199,9 +229,10 @@ namespace CapaPresentacion
 
                     foreach (DataGridViewRow row in dataListadoProductos.Rows)
                     {
+                        // Console.WriteLine("El valor de row.Cells[1].Value " + row.Cells[1].Value);
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
-                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            Codigo = Convert.ToString(row.Cells[1].Value);  // Id del producto en row.Cells[1].Value
                             Rpta = CN_Productos.Eliminar(Convert.ToInt32(Codigo));
 
                             if (Rpta.Equals("OK"))
@@ -222,6 +253,90 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void botonEditarListado_Click(object sender, EventArgs e)
+        {
+
+
+            this.IsEditar = true;
+            try
+            {
+                    int IdProducto;
+                    string Producto;
+                    string Codigo;
+                    string PrecioCompra;
+                    string PrecioVenta;
+                    string Stock;
+                    string Descripcion;
+
+                    // string Rpta = "";
+
+                    foreach (DataGridViewRow row in dataListadoProductos.Rows)
+                    {
+                    
+                    if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            
+                            this.IdProducto = Convert.ToInt32(row.Cells[1].Value);
+                            Console.WriteLine("this.IdProducto luego de tildar es :" + this.IdProducto);
+                            IdProducto = Convert.ToInt32(row.Cells[1].Value);
+                            Producto = Convert.ToString(row.Cells[2].Value);
+                            Codigo = Convert.ToString(row.Cells[3].Value);
+                            PrecioCompra = Convert.ToString(row.Cells[4].Value);
+                            PrecioVenta = Convert.ToString(row.Cells[5].Value);
+                            Stock = Convert.ToString(row.Cells[6].Value);
+                            Descripcion = Convert.ToString(row.Cells[7].Value);
+
+                            txtNombre.Text = Producto;
+                        /// blTelefono.Text = dataListadoTrabajosEmpleado.Rows[0].Cells[3].Value.ToString();
+                            txtCodigo.Text = Codigo;
+                            txtStock.Text = Stock;
+                            txtPrecioCompra.Text = PrecioCompra;
+                            txtPrecioVenta.Text = PrecioVenta;
+
+                            /* Console.WriteLine("IdProducto es : " + IdProducto);
+                            Console.WriteLine("Codigo es : " + Codigo);
+                            Console.WriteLine("PrecioVenta es : " + PrecioVenta);
+                            Console.WriteLine("Descripcion es : " + Descripcion); */
+
+
+                            
+                            /*
+                            if (Rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se Edito Correctamente Correctamente el/los productos");
+                                this.tabListado.SelectedTab = tabPage1;
+                            }
+                            else
+                            {
+                                this.MensajeError(Rpta);
+                            }
+                            */
+                        }
+                    }
+                // Cambiar de pestaña
+                this.tabListado.SelectedTab = tabPage2;
+                this.btnNuevo.Enabled = false;
+
+                Console.WriteLine("this.IdProducto enn editar  ..as   " + this.IdProducto);
+
+                // Cargo el producto en el formulario
+                this.MostrarProducto(this.IdProducto);
+                
+
+                // this.MostrarProductos();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Entro en el catch bb");
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
