@@ -69,7 +69,7 @@ namespace CapaDatos
 
             leer = comando.ExecuteReader();
             tabla.Load(leer);
-            // conexion.CerrarConexion();
+            conexion.CerrarConexion();
             return tabla;
 
         }
@@ -77,7 +77,7 @@ namespace CapaDatos
         // Devuelve un solo producto dado un ID
         public DataTable MostrarProducto(int IdProducto)
         {
-
+            Console.WriteLine("IdProducto en capa datos es : " + IdProducto);
             comando.Connection = conexion.AbrirConexion();
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "bsp_dame_producto";
@@ -86,12 +86,16 @@ namespace CapaDatos
             pIdProducto.ParameterName = "@pIdProducto";
             pIdProducto.MySqlDbType = MySqlDbType.Int32;
             // pIdProducto.Size = 60;
-            // pIdProducto.Value = Producto.IdProducto;
+            pIdProducto.Value = IdProducto;
             comando.Parameters.Add(pIdProducto);
 
             leer = comando.ExecuteReader();
             tabla.Load(leer);
-            // conexion.CerrarConexion();
+            Console.WriteLine("tabla en capa datos es : " + tabla);
+            Console.WriteLine("leer en capa datos es : " + leer.ToString());
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+            
             return tabla;
 
         }
@@ -173,7 +177,7 @@ namespace CapaDatos
 
                 // ExecuteNonQuery devuelve el numero de filas afectadas
                 rpta = comando.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el Registro";
-
+                comando.Parameters.Clear();
 
             }
             catch (Exception ex)
@@ -184,6 +188,7 @@ namespace CapaDatos
             {
                 conexion.CerrarConexion();
             }
+            
             return rpta;
 
         }
@@ -218,6 +223,7 @@ namespace CapaDatos
                 //if (conexion. == ConnectionState.Open) 
                 conexion.CerrarConexion();
             }
+            comando.Parameters.Clear();
             return rpta;
         }
 
@@ -225,6 +231,7 @@ namespace CapaDatos
         {
             Console.WriteLine("Produco.IdProducto es 1 : " + Producto.IdProducto);
             string rpta = "";
+            comando.Parameters.Clear();// si no ponerlo al comienzo de esta funcion
             try
             {
                 comando.Connection = conexion.AbrirConexion();
@@ -304,6 +311,7 @@ namespace CapaDatos
                 //if (conexion. == ConnectionState.Open) 
                 conexion.CerrarConexion();
             }
+            comando.Parameters.Clear();
             return rpta;
         }
     }
