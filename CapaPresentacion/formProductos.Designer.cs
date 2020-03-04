@@ -37,9 +37,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.botonEditarListado = new System.Windows.Forms.Button();
             this.btnNuevoProducto = new System.Windows.Forms.Button();
-            this.tabListado = new System.Windows.Forms.TabControl();
             this.dataListadoProductos = new System.Windows.Forms.DataGridView();
-            this.Marcar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblTotalProductos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,7 +48,7 @@
             // 
             this.pictureBox2.BackgroundImage = global::CapaPresentacion.Properties.Resources.box;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Location = new System.Drawing.Point(1028, 28);
+            this.pictureBox2.Location = new System.Drawing.Point(833, 30);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(65, 70);
             this.pictureBox2.TabIndex = 4;
@@ -70,7 +68,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(382, 9);
+            this.label1.Location = new System.Drawing.Point(298, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(350, 91);
             this.label1.TabIndex = 3;
@@ -78,7 +76,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(257, 143);
+            this.btnBuscar.Location = new System.Drawing.Point(232, 143);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 1;
@@ -96,7 +94,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(369, 143);
+            this.btnEliminar.Location = new System.Drawing.Point(587, 143);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 3;
@@ -106,7 +104,7 @@
             // 
             // botonEditarListado
             // 
-            this.botonEditarListado.Location = new System.Drawing.Point(480, 143);
+            this.botonEditarListado.Location = new System.Drawing.Point(314, 143);
             this.botonEditarListado.Name = "botonEditarListado";
             this.botonEditarListado.Size = new System.Drawing.Size(75, 23);
             this.botonEditarListado.TabIndex = 5;
@@ -116,7 +114,7 @@
             // 
             // btnNuevoProducto
             // 
-            this.btnNuevoProducto.Location = new System.Drawing.Point(601, 143);
+            this.btnNuevoProducto.Location = new System.Drawing.Point(395, 143);
             this.btnNuevoProducto.Name = "btnNuevoProducto";
             this.btnNuevoProducto.Size = new System.Drawing.Size(186, 23);
             this.btnNuevoProducto.TabIndex = 6;
@@ -124,36 +122,24 @@
             this.btnNuevoProducto.UseVisualStyleBackColor = true;
             this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
             // 
-            // tabListado
-            // 
-            this.tabListado.Location = new System.Drawing.Point(257, 292);
-            this.tabListado.Name = "tabListado";
-            this.tabListado.SelectedIndex = 0;
-            this.tabListado.Size = new System.Drawing.Size(843, 260);
-            this.tabListado.TabIndex = 2;
-            // 
             // dataListadoProductos
             // 
             this.dataListadoProductos.AllowUserToAddRows = false;
             this.dataListadoProductos.AllowUserToDeleteRows = false;
             this.dataListadoProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataListadoProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Marcar});
             this.dataListadoProductos.Location = new System.Drawing.Point(34, 185);
+            this.dataListadoProductos.MultiSelect = false;
             this.dataListadoProductos.Name = "dataListadoProductos";
-            this.dataListadoProductos.Size = new System.Drawing.Size(1059, 360);
+            this.dataListadoProductos.ReadOnly = true;
+            this.dataListadoProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataListadoProductos.Size = new System.Drawing.Size(864, 332);
             this.dataListadoProductos.TabIndex = 0;
-            this.dataListadoProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListadoProductos_CellContentClick);
-            // 
-            // Marcar
-            // 
-            this.Marcar.HeaderText = "Marcar";
-            this.Marcar.Name = "Marcar";
+            this.dataListadoProductos.SelectionChanged += new System.EventHandler(this.dataListadoProductos_SelectionChanged);
             // 
             // lblTotalProductos
             // 
             this.lblTotalProductos.AutoSize = true;
-            this.lblTotalProductos.Location = new System.Drawing.Point(895, 169);
+            this.lblTotalProductos.Location = new System.Drawing.Point(767, 169);
             this.lblTotalProductos.Name = "lblTotalProductos";
             this.lblTotalProductos.Size = new System.Drawing.Size(35, 13);
             this.lblTotalProductos.TabIndex = 7;
@@ -163,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1131, 564);
+            this.ClientSize = new System.Drawing.Size(924, 564);
             this.Controls.Add(this.lblTotalProductos);
             this.Controls.Add(this.btnNuevoProducto);
             this.Controls.Add(this.dataListadoProductos);
@@ -172,7 +158,6 @@
             this.Controls.Add(this.botonEditarListado);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tabListado);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnBuscar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -197,9 +182,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button botonEditarListado;
         private System.Windows.Forms.Button btnNuevoProducto;
-        private System.Windows.Forms.TabControl tabListado;
         private System.Windows.Forms.DataGridView dataListadoProductos;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Marcar;
         private System.Windows.Forms.Label lblTotalProductos;
     }
 }
