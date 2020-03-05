@@ -17,6 +17,7 @@ namespace CapaPresentacion
     {
         CN_Empleados objetoCN = new CN_Empleados();
 
+        private int IdEmpleado;
         private bool IsNuevo = false;
         private bool IsEditar = false;
         public formEmpleados()
@@ -32,7 +33,8 @@ namespace CapaPresentacion
         {
             dataListadoEmpleados.DataSource = objetoCN.MostrarEmp();
             // Oculto el IdEmpleado. Lo puedo seguir usando como parametro de eliminacion
-            dataListadoEmpleados.Columns[1].Visible = false;
+            dataListadoEmpleados.Columns[0].Visible = false;
+            lblTotalEmpleados.Text = "Total de Registros: " + Convert.ToString(dataListadoEmpleados.Rows.Count);
 
             // dataListadoEmpleados.Columns[0].ReadOnly = true;
         }
@@ -47,48 +49,6 @@ namespace CapaPresentacion
 
         }
         //Limpiar todos los controles del formulario
-        private void Limpiar()
-        {
-            this.txtNombre.Text = string.Empty;
-            this.txtApellidos.Text = string.Empty;
-            this.txtDNI.Text = string.Empty;
-            this.txtTelefono.Text = string.Empty;
-            this.txtDireccion.Text = string.Empty;
-            //this.monthCalendarFechaNac = monthCalendarFechaNac.TodayDate();
-        }
-
-        //Habilitar los botones
-        private void Botones()
-        {
-            if (this.IsNuevo || this.IsEditar) //Alt + 124
-            {
-                this.Habilitar(true);
-                this.btnNuevo.Enabled = false;
-                this.btnGuardar.Enabled = true;
-                // this.btnEditar.Enabled = false;
-                // this.btnCancelar.Enabled = true;
-            }
-            else
-            {
-                this.Habilitar(false);
-                this.btnNuevo.Enabled = true;
-                this.btnGuardar.Enabled = false;
-                // this.btnEditar.Enabled = true;
-                // this.btnCancelar.Enabled = false;
-            }
-
-        }
-        //Habilitar los controles del formulario
-        private void Habilitar(bool valor)
-        {
-            // this.txtId.ReadOnly = !valor;
-            this.txtNombre.ReadOnly = !valor;
-            this.txtApellidos.ReadOnly = !valor;
-            this.txtDNI.Enabled = valor;
-            this.txtDireccion.Enabled = valor;
-            this.txtTelefono.Enabled = valor;
-            this.monthCalendarFechaNac.Enabled = valor;
-        }
 
         //Mostrar Mensaje de Confirmación
         private void MensajeOk(string mensaje)
@@ -102,77 +62,6 @@ namespace CapaPresentacion
         private void MensajeError(string mensaje)
         {
             MessageBox.Show(mensaje, "Gomeria Leon", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string rpta = "";
-                if (this.txtNombre.Text == string.Empty || this.txtApellidos.Text == string.Empty || this.txtDNI.Text == string.Empty || this.txtDireccion.Text == string.Empty || this.txtTelefono.Text == string.Empty || this.monthCalendarFechaNac.Text == string.Empty)
-                {
-                    MensajeError("Falta ingresar algunos datos");
-                    /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
-                    errorIcono.SetError(txtStock, "Ingrese un Valor");
-                    errorIcono.SetError(txtDescripcion, "Ingrese un Valor"); */
-                }
-                else
-                {
-                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
-
-                    if (this.IsNuevo)
-                    {
-                        rpta = CN_Empleados.Insertar(this.txtNombre.Text.Trim(), this.txtApellidos.Text.Trim(),
-                            this.txtDNI.Text.Trim(),this.txtDireccion.Text.Trim(), this.txtTelefono.Text.Trim(),
-                            this.monthCalendarFechaNac.Text.Trim());
-                    }
-                    else
-                    {
-                        /*rpta = CN_Productos.Editar(Convert.ToInt32(this.txtIdarticulo.Text),
-                            this.txtCodigo.Text, this.txtNombre.Text.Trim().ToUpper(),
-                            this.txtDescripcion.Text.Trim(), imagen, Convert.ToInt32(this.txtIdcategoria.Text),
-                            Convert.ToInt32(this.cbIdpresentacion.SelectedValue)); */
-                    }
-
-                    if (rpta.Equals("OK"))
-                    {
-                        if (this.IsNuevo)
-                        {
-                            this.MensajeOk("Se Insertó de forma correcta el registro");
-                        }
-                        else
-                        {
-                            this.MensajeOk("Se Actualizó de forma correcta el registro");
-                        }
-                    }
-                    else
-                    {
-                        this.MensajeError(rpta);
-                    }
-
-                    this.IsNuevo = false;
-                    this.IsEditar = false;
-                    this.Botones();
-                    this.Limpiar();
-                    this.MostrarEmpleados();
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void btnNuevo_Click_1(object sender, EventArgs e)
-        {
-            this.IsNuevo = true;
-            this.IsEditar = false;
-            this.Botones();
-            this.Limpiar();
-            this.Habilitar(true);
-            this.txtNombre.Focus();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -224,7 +113,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnAgregarTrabajo_Click(object sender, EventArgs e)
+        /*private void btnAgregarTrabajo_Click(object sender, EventArgs e)
         {
             try
             {
@@ -242,15 +131,6 @@ namespace CapaPresentacion
                         // Pregunta si esta tildada , Celda = 1
                         if (Convert.ToBoolean(row.Cells[0].Value))  // Convierte a boleano la columna con los checkbox
                         {
-                            /* dataListadoEmpleados.Columns["Marcar"].ReadOnly = true;
-
-                            dataListadoEmpleados.Columns["Marcar"].DefaultCellStyle.BackColor = Color.LightGray;
-
-                            dataListadoEmpleados.Columns["Marcar"].DefaultCellStyle.ForeColor = Color.DarkGray;
-
-                            dataListadoEmpleados.Columns["Marcar"].DefaultCellStyle.SelectionBackColor = Color.LightGray;
-
-                            dataListadoEmpleados.Columns["Marcar"].DefaultCellStyle.SelectionForeColor = Color.DarkGray; */
 
                             Codigo = Convert.ToString(row.Cells[1].Value);  // Transforma a string el valor de la celda 1 (IdEmpleado o el nombre VER BIEN)
 
@@ -272,7 +152,7 @@ namespace CapaPresentacion
                                 this.MensajeError(Rpta);
                             }*/
 
-                        }
+                        /*}
                     }
                     // this.MostrarEmpleados();
                 }
@@ -281,7 +161,90 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }*/
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            this.BuscarEmpleado();
         }
 
+        private void BuscarEmpleado()
+        {
+            Console.WriteLine("this.txtBuscar.Text es " + this.txtBuscar.Text);
+            this.dataListadoEmpleados.DataSource = objetoCN.BuscarEmpleado(this.txtBuscar.Text);
+            // this.OcultarColumnas();
+            lblTotalEmpleados.Text = "Total de Registros: " + Convert.ToString(dataListadoEmpleados.Rows.Count);
+        }
+
+        private void btnNuevoEmpleado_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("this.IdEmpleado en click nuevo es  : " + this.IdEmpleado);
+            formNuevoEditarEmpleado frm = new formNuevoEditarEmpleado(this.IdEmpleado, true);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+            this.Close();
+        }
+
+        private void botonEditarListado_Click(object sender, EventArgs e)
+        {
+            formNuevoEditarEmpleado frm = new formNuevoEditarEmpleado(this.IdEmpleado, false);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+            this.Close();
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Eliminar el empleado", "Gomeria Leon", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    Console.WriteLine("El IdEmpleado en eliminar es " + this.IdEmpleado);
+                    CN_Empleados.Eliminar(this.IdEmpleado);
+                    this.MostrarEmpleados();
+                }
+                this.MensajeOk("Se elimino de forma correcta el registro");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+            this.Close();
+        }
+
+        private void dataListadoEmpleados_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataListadoEmpleados.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataListadoEmpleados.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataListadoEmpleados.Rows[selectedrowindex];
+                this.IdEmpleado = Convert.ToInt32(selectedRow.Cells["IdEmpleado"].Value);
+                Console.WriteLine("El id producto es " + this.IdEmpleado);
+            }
+        }
+
+        private void btnAgregarTrabajos_Click(object sender, EventArgs e)
+        {
+            formTrabajosEmpleado frm = new formTrabajosEmpleado(this.IdEmpleado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+            // this.Close();
+        }
+
+        private void btnAgregarTrabajo_Click(object sender, EventArgs e)
+        {
+            this.agregarTrabajo(this.IdEmpleado);
+        }
+
+        private void agregarTrabajo(int IdEmpleado)
+        {
+            formAgregarTrabajoEmpleado frm = new formAgregarTrabajoEmpleado(this.IdEmpleado);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
     }
+
 }

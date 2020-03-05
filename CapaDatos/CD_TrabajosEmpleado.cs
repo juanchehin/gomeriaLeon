@@ -41,13 +41,14 @@ namespace CapaDatos
         // ==================================================
         private CD_Conexion conexion = new CD_Conexion();
 
+        string respuesta;
         MySqlDataReader leer;
         DataTable tabla = new DataTable();
         MySqlCommand comando = new MySqlCommand();
 
 
 
-        public DataTable Mostrar(string IdEmpleado)
+        public DataTable Mostrar(int IdEmpleado)
         {
 
             comando.Connection = conexion.AbrirConexion();
@@ -63,7 +64,17 @@ namespace CapaDatos
 
             leer = comando.ExecuteReader();
             tabla.Load(leer);
-            // conexion.CerrarConexion();
+
+            respuesta = (string)comando.ExecuteScalar();
+            Console.WriteLine("EL valor devuelto por la BD ExecuteScalar() : " + comando.ExecuteScalar());
+
+            if (respuesta == "El empleado no posee trabajos")
+            {
+                tabla = null;
+                return tabla;
+            }
+                        
+            conexion.CerrarConexion();
             return tabla;
 
         }

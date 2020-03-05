@@ -40,5 +40,37 @@ namespace CapaNegocio
             Obj.IdCliente = IdCliente;
             return Obj.Eliminar(Obj);
         }
+
+        // Devuelve solo un Cliente
+        public DataTable MostrarCliente(int IdCliente)
+        {
+
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.MostrarCliente(IdCliente);
+            Console.WriteLine("tabla TableName en capa negocio es : " + tabla.TableName);
+            Console.WriteLine("tabla Rows en capa negocio es : " + tabla.Rows);
+            return tabla;
+        }
+
+        public static string Editar(int IdCliente, string Transporte, string Titular, string Telefono)
+        {
+            
+            CD_Clientes Obj = new CD_Clientes();
+            Obj.IdCliente = IdCliente;
+
+            Obj.Transporte = Transporte;
+            Obj.Titular = Titular;
+            Obj.Telefono = Telefono;
+
+            return Obj.Editar(Obj);
+        }
+
+        public DataTable BuscarCliente(string textobuscar)
+        {
+            Console.WriteLine("textobuscar en capa negocio es : " + textobuscar);
+            CD_Clientes Obj = new CD_Clientes();
+            Obj.TextoBuscar = textobuscar;
+            return Obj.BuscarCliente(Obj);
+        }
     }
 }

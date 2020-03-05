@@ -192,5 +192,12 @@ namespace CapaPresentacion
                 MessageBox.Show("Debe ingresar valores numericos ");
             }
         }
+
+        private void formNuevoEditarProducto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Console.WriteLine("Se debe mostrar cuando se cierre el formulario de editar");
+            formProductos formP = new formProductos();
+            formP.MostrarProductos();
+        }
     }
 }

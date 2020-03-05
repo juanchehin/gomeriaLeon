@@ -15,7 +15,7 @@ namespace CapaNegocio
 
         //Método Insertar que llama al método Insertar de la clase DArticulo
         //de la CapaDatos
-        public static string Insertar(string Nombre, string Apellidos, string DNI,string Direccion,string Telefono,string FechaNac)
+        public static string Insertar(string Nombre, string Apellidos, string DNI,string Direccion,string Telefono,DateTime FechaNac)
         {
             // Console.WriteLine("En insertar , nombre es " + nombre);
 
@@ -42,6 +42,42 @@ namespace CapaNegocio
             CD_Empleados Obj = new CD_Empleados();
             Obj.IdEmpleado = IdEmpleado;
             return Obj.Eliminar(Obj);
+        }
+
+        public DataTable MostrarEmpleado(int IdEmpleado)
+        {
+
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.MostrarEmpleado(IdEmpleado);
+            Console.WriteLine("tabla TableName en capa negocio es : " + tabla.TableName);
+            Console.WriteLine("tabla Rows en capa negocio es : " + tabla.Rows);
+            return tabla;
+        }
+
+        public static string Editar(int IdEmpleado, string Nombre, string Apellidos, string DNI, string Direccion, string Telefono,DateTime FechaNac)
+        {
+            // Console.WriteLine("Produco.IdProducto es 2 : " + IdProducto);
+            CD_Empleados Obj = new CD_Empleados();
+            Obj.IdEmpleado = IdEmpleado;
+
+            Obj.Nombre = Nombre;
+            Obj.Apellidos = Apellidos;
+            Obj.DNI = DNI;
+            Obj.Direccion = Direccion;
+            Obj.Telefono = Telefono;
+            Obj.FechaNac = FechaNac;
+
+            // Console.WriteLine("Produco.IdProducto es 3 : " + IdProducto);
+
+            return Obj.Editar(Obj);
+        }
+
+        public DataTable BuscarEmpleado(string textobuscar)
+        {
+            Console.WriteLine("textobuscar en capa negocio es : " + textobuscar);
+            CD_Empleados Obj = new CD_Empleados();
+            Obj.TextoBuscar = textobuscar;
+            return Obj.BuscarEmpleado(Obj);
         }
 
 

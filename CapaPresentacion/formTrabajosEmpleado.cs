@@ -14,8 +14,8 @@ namespace CapaPresentacion
 {
     public partial class formTrabajosEmpleado : Form
     {
-        private string parametroTE;
-        public formTrabajosEmpleado(string parametro)
+        private int parametroTE;
+        public formTrabajosEmpleado(int parametro)
         {
             this.parametroTE = parametro;
             Console.WriteLine("this.parametroTE es : " + this.parametroTE);
@@ -27,9 +27,15 @@ namespace CapaPresentacion
         private bool IsNuevo = false;
         private bool IsEditar = false;
 
-        private void MostrarTrabajosEmpleado(string IdEmpleado)
+        private void MostrarTrabajosEmpleado(int IdEmpleado)
         {
             dataListadoTrabajosEmpleado.DataSource = objetoCN.MostrarTrabajosEmpleado(IdEmpleado);
+            if(dataListadoTrabajosEmpleado.DataSource == null)
+            {
+                MensajeError("El empleado no posee trabajos");
+                this.Close();
+                return;
+            }
             // Oculto el IdProducto. Lo puedo seguir usando como parametro de eliminacion
             lblApellidoNombre.Text = dataListadoTrabajosEmpleado.Rows[0].Cells[1].Value.ToString() + "  " + dataListadoTrabajosEmpleado.Rows[0].Cells[0].Value.ToString();
             lblDireccion.Text = dataListadoTrabajosEmpleado.Rows[0].Cells[2].Value.ToString();
@@ -39,10 +45,6 @@ namespace CapaPresentacion
             dataListadoTrabajosEmpleado.Columns[1].Visible = false;
             dataListadoTrabajosEmpleado.Columns[2].Visible = false;
             dataListadoTrabajosEmpleado.Columns[3].Visible = false;
-
-            
-
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -109,65 +111,6 @@ namespace CapaPresentacion
             //this.comboBoxTrabajos.Enabled = !valor;
             //this.txtCantidad.ReadOnly = !valor;
             //this.txtStock.Enabled = valor;
-        }
-        private void btnGuardar_Click_1(object sender, EventArgs e)
-        {
-            /*try
-            {
-                string rpta = "";
-                if (this.comboBoxTrabajos.SelectedIndex == -1 || this.txtCantidad.Text == string.Empty)
-                {
-                    MensajeError("Falta ingresar algunos datos");
-                    /*errorIcono.SetError(txtNombre, "Ingrese un Valor");
-                    errorIcono.SetError(txtStock, "Ingrese un Valor");
-                    errorIcono.SetError(txtDescripcion, "Ingrese un Valor"); */
-            /*}
-            else
-            {
-                System.IO.MemoryStream ms = new System.IO.MemoryStream();
-
-                if (this.IsNuevo)
-                {
-                    // rpta = CN_TrabajosEmpleado.Insertar(this.comboBoxTrabajos.SelectedItem, this.Empl .Text.Trim(), this.txtDescripcion.Text.Trim(),
-                    //     this.txtStock.Text.Trim());
-                }
-                else
-                {
-                    /*rpta = CN_Productos.Editar(Convert.ToInt32(this.txtIdarticulo.Text),
-                        this.txtCodigo.Text, this.txtNombre.Text.Trim().ToUpper(),
-                        this.txtDescripcion.Text.Trim(), imagen, Convert.ToInt32(this.txtIdcategoria.Text),
-                        Convert.ToInt32(this.cbIdpresentacion.SelectedValue)); */
-            /*}
-
-            if (rpta.Equals("OK"))
-            {
-                if (this.IsNuevo)
-                {
-                    this.MensajeOk("Se Insertó de forma correcta el registro");
-                }
-                else
-                {
-                    this.MensajeOk("Se Actualizó de forma correcta el registro");
-                }
-            }
-            else
-            {
-                this.MensajeError(rpta);
-            }
-
-            this.IsNuevo = false;
-            this.IsEditar = false;
-            this.Botones();
-            this.Limpiar();
-            // Enviar parametro recibido desde el otro formulario
-            this.MostrarTrabajosEmpleado(this.parametroTE);
-            }
-        }
-        catch (Exception ex)
-        {
-        MessageBox.Show(ex.Message + ex.StackTrace);
-        }*/
-
         }
 
         //Mostrar Mensaje de Confirmación

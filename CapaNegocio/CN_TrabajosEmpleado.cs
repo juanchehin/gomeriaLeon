@@ -28,7 +28,7 @@ namespace CapaNegocio
             return Obj.Insertar(Obj);
         }
 
-        public DataTable MostrarTrabajosEmpleado(string IdEmpleado)
+        public DataTable MostrarTrabajosEmpleado(int IdEmpleado)
         {
 
             DataTable tabla = new DataTable();

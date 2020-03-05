@@ -30,3 +30,6 @@ D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacio
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formVentas.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formTrabajosEmpleado.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarProducto.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarClientes.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarEmpleado.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formAgregarTrabajoEmpleado.resources

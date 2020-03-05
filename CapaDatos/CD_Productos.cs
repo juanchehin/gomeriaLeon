@@ -314,5 +314,40 @@ namespace CapaDatos
             comando.Parameters.Clear();
             return rpta;
         }
+
+        public DataTable BuscarProducto(CD_Productos Producto)
+        {
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "bsp_buscar_producto";
+
+                MySqlParameter pTextoBuscar = new MySqlParameter();
+                pTextoBuscar.ParameterName = "@pTextoBuscar";
+                pTextoBuscar.MySqlDbType = MySqlDbType.VarChar;
+                pTextoBuscar.Size = 30;
+                pTextoBuscar.Value = Producto.TextoBuscar;
+                comando.Parameters.Add(pTextoBuscar);
+
+                leer = comando.ExecuteReader();
+                tabla.Load(leer);
+                Console.WriteLine("tabla en capa datos es : " + tabla);
+                Console.WriteLine("leer en capa datos es : " + leer.ToString());
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+
+                // return tabla;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Entro en el catch y tabla es en capa datos" + tabla);
+                Console.WriteLine("Entro en el catch y ex es en capa datos" + ex.Message);
+
+                tabla = null;
+            }
+            return tabla;
+
+        }
     }
 }

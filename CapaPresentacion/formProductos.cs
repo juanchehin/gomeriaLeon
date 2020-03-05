@@ -57,7 +57,7 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            this.BuscarProducto();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -115,6 +115,7 @@ namespace CapaPresentacion
             formNuevoEditarProducto frm = new formNuevoEditarProducto(this.IdProducto,false);
             frm.MdiParent = this.MdiParent;
             frm.Show();
+            Console.WriteLine("Esto se deberia mostrar al cerrar el form de editar");
             this.Close();
         }
 
@@ -128,6 +129,14 @@ namespace CapaPresentacion
                 this.IdProducto = Convert.ToInt32(selectedRow.Cells["IdPRoducto"].Value);
                 Console.WriteLine("El id producto es " + this.IdProducto);
             }
+        }
+
+        private void BuscarProducto()
+        {
+            Console.WriteLine("this.txtBuscar.Text es " + this.txtBuscar.Text);
+            this.dataListadoProductos.DataSource = objetoCN.BuscarProducto(this.txtBuscar.Text);
+            // this.OcultarColumnas();
+            lblTotalProductos.Text = "Total de Registros: " + Convert.ToString(dataListadoProductos.Rows.Count);
         }
     }
 }

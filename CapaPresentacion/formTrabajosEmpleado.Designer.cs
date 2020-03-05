@@ -60,7 +60,7 @@
             this.dataListadoTrabajosEmpleado.Location = new System.Drawing.Point(12, 135);
             this.dataListadoTrabajosEmpleado.Name = "dataListadoTrabajosEmpleado";
             this.dataListadoTrabajosEmpleado.ReadOnly = true;
-            this.dataListadoTrabajosEmpleado.Size = new System.Drawing.Size(776, 303);
+            this.dataListadoTrabajosEmpleado.Size = new System.Drawing.Size(707, 303);
             this.dataListadoTrabajosEmpleado.TabIndex = 0;
             // 
             // label1
@@ -126,7 +126,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(713, 94);
+            this.button1.Location = new System.Drawing.Point(644, 106);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(731, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataListadoTrabajosEmpleado);
             this.Controls.Add(this.lblTelefono);
