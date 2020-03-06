@@ -39,6 +39,7 @@
             this.btnNuevoProducto = new System.Windows.Forms.Button();
             this.dataListadoProductos = new System.Windows.Forms.DataGridView();
             this.lblTotalProductos = new System.Windows.Forms.Label();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoProductos)).BeginInit();
@@ -91,6 +92,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(181, 20);
             this.txtBuscar.TabIndex = 2;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
             // btnEliminar
             // 
@@ -145,11 +147,22 @@
             this.lblTotalProductos.TabIndex = 7;
             this.lblTotalProductos.Text = "label2";
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Image = global::CapaPresentacion.Properties.Resources.refresh;
+            this.btnRefrescar.Location = new System.Drawing.Point(865, 121);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(33, 31);
+            this.btnRefrescar.TabIndex = 13;
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
             // formProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 564);
+            this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.lblTotalProductos);
             this.Controls.Add(this.btnNuevoProducto);
             this.Controls.Add(this.dataListadoProductos);
@@ -184,6 +197,7 @@
         private System.Windows.Forms.Button btnNuevoProducto;
         private System.Windows.Forms.DataGridView dataListadoProductos;
         private System.Windows.Forms.Label lblTotalProductos;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }
 

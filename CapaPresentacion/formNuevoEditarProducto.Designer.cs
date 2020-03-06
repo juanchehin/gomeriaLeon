@@ -202,7 +202,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Impact", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(399, 12);
+            this.label6.Location = new System.Drawing.Point(366, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(315, 91);
             this.label6.TabIndex = 5;
@@ -212,7 +212,7 @@
             // 
             this.lblEditarNuevo.AutoSize = true;
             this.lblEditarNuevo.Font = new System.Drawing.Font("Impact", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditarNuevo.Location = new System.Drawing.Point(130, 12);
+            this.lblEditarNuevo.Location = new System.Drawing.Point(88, 9);
             this.lblEditarNuevo.Name = "lblEditarNuevo";
             this.lblEditarNuevo.Size = new System.Drawing.Size(287, 91);
             this.lblEditarNuevo.TabIndex = 6;
@@ -222,7 +222,7 @@
             // 
             this.pictureBox2.BackgroundImage = global::CapaPresentacion.Properties.Resources.box;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Location = new System.Drawing.Point(723, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(687, 30);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(65, 70);
             this.pictureBox2.TabIndex = 7;
@@ -240,6 +240,7 @@
             // 
             // formNuevoEditarProducto
             // 
+            this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);

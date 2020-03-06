@@ -25,6 +25,8 @@ namespace CapaPresentacion
         private string Nombre;
         private string Apellidos;
 
+        private string IdTrabajoActual;
+
 
         public formAgregarTrabajoEmpleado(int parametro)
         {
@@ -45,14 +47,20 @@ namespace CapaPresentacion
             this.MostrarEmpleado(this.IdEmpleado);
             this.CargarTrabajos();
         }
+
+        // Cargo los trabajos en el comboBox
         private void CargarTrabajos()
         {
             respuesta_trabajos = objetoCN_trabajos.MostrarTrabajos();
+
             cbTrabajos.DataSource = respuesta_trabajos;
 
-            // cbTrabajos.DataSource = Reviewers_table
+            // cbTrabajos.ValueMember = cbTrabajos;
+            Console.WriteLine(" cbTrabajos.ValueMember es  " + cbTrabajos.ValueMember);
             cbTrabajos.DisplayMember = "Trabajo";
             cbTrabajos.ValueMember = "IdTrabajo";
+
+            this.IdTrabajoActual = cbTrabajos.ValueMember.ToString();
         }
 
         private void MostrarEmpleado(int IdEmpleado)
@@ -63,9 +71,7 @@ namespace CapaPresentacion
             Console.WriteLine("Respuesta es ; " + respuesta.Rows.Count);
             foreach (DataRow row in respuesta.Rows)
             {
-                // Console.WriteLine("row es :" + row["Producto"]);
 
-                // IdProducto = Convert.ToInt32(row["IdProducto"]);
                 Nombre = Convert.ToString(row["Nombre"]);
                 Apellidos = Convert.ToString(row["Apellidos"]);
                 
@@ -75,5 +81,12 @@ namespace CapaPresentacion
 
             }
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            // this.IdTrabajoActual = cbTrabajos;
+            Console.WriteLine("IdTrabajoactual es : " + this.IdTrabajoActual);
+        }
+
     }
 }

@@ -16,5 +16,23 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscar_Click(this, new EventArgs());
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            // this.buscar.....
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

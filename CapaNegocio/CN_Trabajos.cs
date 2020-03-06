@@ -39,5 +39,38 @@ namespace CapaNegocio
             Obj.IdTrabajo = IdTrabajo;
             return Obj.Eliminar(Obj);
         }
+
+        // Devuelve solo un trabajo dado un ID
+        public DataTable MostrarTrabajo(int IdTrabajo)
+        {
+
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.MostrarTrabajo(IdTrabajo);
+            // Console.WriteLine("tabla TableName en capa negocio es : " + tabla.TableName);
+            // Console.WriteLine("tabla Rows en capa negocio es : " + tabla.Rows);
+            return tabla;
+        }
+
+        public static string Editar(int IdTrabajo, string Trabajo, string PrecioUnitario)
+        {
+            // Console.WriteLine("Produco.IdProducto es 2 : " + IdProducto);
+            CD_Trabajos Obj = new CD_Trabajos();
+            Obj.IdTrabajo = IdTrabajo;
+
+            Obj.Trabajo = Trabajo;
+            Obj.PrecioUnitario = PrecioUnitario;
+
+            // Console.WriteLine("Produco.IdProducto es 3 : " + IdProducto);
+
+            return Obj.Editar(Obj);
+        }
+
+        public DataTable BuscarTrabajo(string textobuscar)
+        {
+            Console.WriteLine("textobuscar en capa negocio es : " + textobuscar);
+            CD_Trabajos Obj = new CD_Trabajos();
+            Obj.TextoBuscar = textobuscar;
+            return Obj.BuscarTrabajo(Obj);
+        }
     }
 }

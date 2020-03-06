@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,7 +37,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtSalir = new System.Windows.Forms.Button();
+            this.btnAyuda = new System.Windows.Forms.Button();
             this.btnTrabajos = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ttAyuda = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,16 +113,16 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Trabajos";
             // 
-            // txtSalir
+            // btnAyuda
             // 
-            this.txtSalir.BackgroundImage = global::CapaPresentacion.Properties.Resources.logout_1_;
-            this.txtSalir.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.txtSalir.Location = new System.Drawing.Point(750, 408);
-            this.txtSalir.Name = "txtSalir";
-            this.txtSalir.Size = new System.Drawing.Size(38, 30);
-            this.txtSalir.TabIndex = 19;
-            this.txtSalir.UseVisualStyleBackColor = true;
-            this.txtSalir.Click += new System.EventHandler(this.txtSalir_Click);
+            this.btnAyuda.Image = global::CapaPresentacion.Properties.Resources.info;
+            this.btnAyuda.Location = new System.Drawing.Point(743, 396);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(45, 42);
+            this.btnAyuda.TabIndex = 19;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnAyuda.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // btnTrabajos
             // 
@@ -207,7 +209,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtSalir);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -227,6 +229,7 @@
             this.Name = "frmPrincipal";
             this.Text = "                                                                                 " +
     "              ..:: Gomeria Leon ::..";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -250,6 +253,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button txtSalir;
+        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.ToolTip ttAyuda;
     }
 }

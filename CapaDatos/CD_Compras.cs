@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    class CD_Compras
+    public class CD_Compras
     {
     }
 }

@@ -130,15 +130,14 @@ namespace CapaPresentacion
                         {
                             this.MensajeError(rpta);
                         }
-
+                        this.Close();
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message + ex.StackTrace);
                 }
-            this.Close();
-            
+        
         }
  
         private void MensajeOk(string mensaje)

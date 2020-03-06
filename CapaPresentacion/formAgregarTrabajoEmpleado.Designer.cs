@@ -51,7 +51,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(104, 44);
+            this.label1.Location = new System.Drawing.Point(93, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 25);
             this.label1.TabIndex = 4;
@@ -61,7 +61,7 @@
             // 
             this.lblNombreEmpleado.AutoSize = true;
             this.lblNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreEmpleado.Location = new System.Drawing.Point(277, 44);
+            this.lblNombreEmpleado.Location = new System.Drawing.Point(281, 9);
             this.lblNombreEmpleado.Name = "lblNombreEmpleado";
             this.lblNombreEmpleado.Size = new System.Drawing.Size(64, 25);
             this.lblNombreEmpleado.TabIndex = 5;
@@ -71,7 +71,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::CapaPresentacion.Properties.Resources.logo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(55, 57);
             this.pictureBox1.TabIndex = 3;
@@ -124,12 +124,13 @@
             this.cbTrabajos.Name = "cbTrabajos";
             this.cbTrabajos.Size = new System.Drawing.Size(196, 21);
             this.cbTrabajos.TabIndex = 18;
+//             this.cbTrabajos.SelectedIndexChanged += new System.EventHandler(this.cbTrabajos_SelectedIndexChanged);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::CapaPresentacion.Properties.Resources.Empleado1;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Location = new System.Drawing.Point(508, 26);
+            this.pictureBox2.Location = new System.Drawing.Point(532, 37);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(68, 77);
             this.pictureBox2.TabIndex = 10;
@@ -139,7 +140,7 @@
             // 
             this.pictureBox3.BackgroundImage = global::CapaPresentacion.Properties.Resources.labour;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox3.Location = new System.Drawing.Point(599, 26);
+            this.pictureBox3.Location = new System.Drawing.Point(623, 35);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(74, 79);
             this.pictureBox3.TabIndex = 11;
@@ -153,6 +154,7 @@
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -166,6 +168,7 @@
             // 
             // formAgregarTrabajoEmpleado
             // 
+            this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 373);

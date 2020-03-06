@@ -245,6 +245,19 @@ namespace CapaPresentacion
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscar_Click(this, new EventArgs());
+            }
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            this.MostrarEmpleados();
+        }
     }
 
 }

@@ -70,5 +70,21 @@ namespace CapaPresentacion
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            formInformacion frm = new formInformacion();
+            frm.Show();
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            this.ttAyuda.SetToolTip(btnAyuda, "Ayuda");
+        }
+
+        private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

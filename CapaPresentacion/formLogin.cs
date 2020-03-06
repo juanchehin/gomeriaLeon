@@ -64,5 +64,16 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            formInformacion frm = new formInformacion();
+            frm.Show();
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            this.ttAyuda.SetToolTip(btnAyuda, "Ayuda");
+        }
     }
 }

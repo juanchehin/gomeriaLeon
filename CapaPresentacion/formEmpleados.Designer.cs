@@ -37,10 +37,12 @@
             this.botonEditarListado = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnNuevoEmpleado = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAgregarTrabajos = new System.Windows.Forms.Button();
             this.btnAgregarTrabajo = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,7 +61,7 @@
             // lblTotalEmpleados
             // 
             this.lblTotalEmpleados.AutoSize = true;
-            this.lblTotalEmpleados.Location = new System.Drawing.Point(657, 131);
+            this.lblTotalEmpleados.Location = new System.Drawing.Point(657, 151);
             this.lblTotalEmpleados.Name = "lblTotalEmpleados";
             this.lblTotalEmpleados.Size = new System.Drawing.Size(35, 13);
             this.lblTotalEmpleados.TabIndex = 25;
@@ -70,7 +72,7 @@
             this.dataListadoEmpleados.AllowUserToAddRows = false;
             this.dataListadoEmpleados.AllowUserToDeleteRows = false;
             this.dataListadoEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataListadoEmpleados.Location = new System.Drawing.Point(38, 147);
+            this.dataListadoEmpleados.Location = new System.Drawing.Point(38, 167);
             this.dataListadoEmpleados.MultiSelect = false;
             this.dataListadoEmpleados.Name = "dataListadoEmpleados";
             this.dataListadoEmpleados.ReadOnly = true;
@@ -81,7 +83,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(238, 102);
+            this.btnBuscar.Location = new System.Drawing.Point(238, 121);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 20;
@@ -91,7 +93,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(400, 102);
+            this.btnEliminar.Location = new System.Drawing.Point(400, 121);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 22;
@@ -101,7 +103,7 @@
             // 
             // botonEditarListado
             // 
-            this.botonEditarListado.Location = new System.Drawing.Point(319, 102);
+            this.botonEditarListado.Location = new System.Drawing.Point(319, 121);
             this.botonEditarListado.Name = "botonEditarListado";
             this.botonEditarListado.Size = new System.Drawing.Size(75, 23);
             this.botonEditarListado.TabIndex = 23;
@@ -111,20 +113,50 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(38, 102);
+            this.txtBuscar.Location = new System.Drawing.Point(38, 121);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(181, 20);
             this.txtBuscar.TabIndex = 21;
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
             // btnNuevoEmpleado
             // 
-            this.btnNuevoEmpleado.Location = new System.Drawing.Point(481, 102);
+            this.btnNuevoEmpleado.Location = new System.Drawing.Point(481, 121);
             this.btnNuevoEmpleado.Name = "btnNuevoEmpleado";
             this.btnNuevoEmpleado.Size = new System.Drawing.Size(139, 23);
             this.btnNuevoEmpleado.TabIndex = 24;
             this.btnNuevoEmpleado.Text = "Nuevo empleado";
             this.btnNuevoEmpleado.UseVisualStyleBackColor = true;
             this.btnNuevoEmpleado.Click += new System.EventHandler(this.btnNuevoEmpleado_Click);
+            // 
+            // btnAgregarTrabajos
+            // 
+            this.btnAgregarTrabajos.Location = new System.Drawing.Point(511, 464);
+            this.btnAgregarTrabajos.Name = "btnAgregarTrabajos";
+            this.btnAgregarTrabajos.Size = new System.Drawing.Size(143, 23);
+            this.btnAgregarTrabajos.TabIndex = 26;
+            this.btnAgregarTrabajos.Text = "Ver trabajos";
+            this.btnAgregarTrabajos.UseVisualStyleBackColor = true;
+            this.btnAgregarTrabajos.Click += new System.EventHandler(this.btnAgregarTrabajos_Click);
+            // 
+            // btnAgregarTrabajo
+            // 
+            this.btnAgregarTrabajo.Location = new System.Drawing.Point(660, 464);
+            this.btnAgregarTrabajo.Name = "btnAgregarTrabajo";
+            this.btnAgregarTrabajo.Size = new System.Drawing.Size(143, 23);
+            this.btnAgregarTrabajo.TabIndex = 27;
+            this.btnAgregarTrabajo.Text = "Agregar trabajo";
+            this.btnAgregarTrabajo.UseVisualStyleBackColor = true;
+            this.btnAgregarTrabajo.Click += new System.EventHandler(this.btnAgregarTrabajo_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 151);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 13);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Busqueda por apellido o nombre";
             // 
             // pictureBox2
             // 
@@ -146,31 +178,23 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // btnAgregarTrabajos
+            // btnRefrescar
             // 
-            this.btnAgregarTrabajos.Location = new System.Drawing.Point(511, 444);
-            this.btnAgregarTrabajos.Name = "btnAgregarTrabajos";
-            this.btnAgregarTrabajos.Size = new System.Drawing.Size(143, 23);
-            this.btnAgregarTrabajos.TabIndex = 26;
-            this.btnAgregarTrabajos.Text = "Ver trabajos";
-            this.btnAgregarTrabajos.UseVisualStyleBackColor = true;
-            this.btnAgregarTrabajos.Click += new System.EventHandler(this.btnAgregarTrabajos_Click);
-            // 
-            // btnAgregarTrabajo
-            // 
-            this.btnAgregarTrabajo.Location = new System.Drawing.Point(660, 444);
-            this.btnAgregarTrabajo.Name = "btnAgregarTrabajo";
-            this.btnAgregarTrabajo.Size = new System.Drawing.Size(143, 23);
-            this.btnAgregarTrabajo.TabIndex = 27;
-            this.btnAgregarTrabajo.Text = "Agregar trabajo";
-            this.btnAgregarTrabajo.UseVisualStyleBackColor = true;
-            this.btnAgregarTrabajo.Click += new System.EventHandler(this.btnAgregarTrabajo_Click);
+            this.btnRefrescar.Image = global::CapaPresentacion.Properties.Resources.refresh;
+            this.btnRefrescar.Location = new System.Drawing.Point(772, 109);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(31, 32);
+            this.btnRefrescar.TabIndex = 29;
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // formEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 499);
+            this.Controls.Add(this.btnRefrescar);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAgregarTrabajo);
             this.Controls.Add(this.btnAgregarTrabajos);
             this.Controls.Add(this.lblTotalEmpleados);
@@ -209,5 +233,7 @@
         private System.Windows.Forms.Button btnNuevoEmpleado;
         private System.Windows.Forms.Button btnAgregarTrabajos;
         private System.Windows.Forms.Button btnAgregarTrabajo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }

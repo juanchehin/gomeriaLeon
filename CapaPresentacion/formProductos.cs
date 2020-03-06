@@ -84,7 +84,7 @@ namespace CapaPresentacion
             try
             {
                 DialogResult Opcion;
-                Opcion = MessageBox.Show("Realmente Desea Eliminar el/los productos", "Gomeria Leon", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                Opcion = MessageBox.Show("Realmente Desea Eliminar el producto", "Gomeria Leon", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (Opcion == DialogResult.OK)
                 {
@@ -106,7 +106,7 @@ namespace CapaPresentacion
             formNuevoEditarProducto frm = new formNuevoEditarProducto(this.IdProducto,true);
             frm.MdiParent = this.MdiParent;
             frm.Show();
-            this.Close();
+            // this.Close();
         }
 
         private void botonEditarListado_Click(object sender, EventArgs e)
@@ -116,7 +116,7 @@ namespace CapaPresentacion
             frm.MdiParent = this.MdiParent;
             frm.Show();
             Console.WriteLine("Esto se deberia mostrar al cerrar el form de editar");
-            this.Close();
+            // this.Close();
         }
 
         private void dataListadoProductos_SelectionChanged(object sender, EventArgs e)
@@ -137,6 +137,19 @@ namespace CapaPresentacion
             this.dataListadoProductos.DataSource = objetoCN.BuscarProducto(this.txtBuscar.Text);
             // this.OcultarColumnas();
             lblTotalProductos.Text = "Total de Registros: " + Convert.ToString(dataListadoProductos.Rows.Count);
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(this, new EventArgs());
+            }
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            this.MostrarProductos();
         }
     }
 }
