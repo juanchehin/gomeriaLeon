@@ -31,16 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formVentas));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblTotalProductos = new System.Windows.Forms.Label();
-            this.btnNuevoProducto = new System.Windows.Forms.Button();
-            this.dataListadoProductos = new System.Windows.Forms.DataGridView();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.lblTotalVentas = new System.Windows.Forms.Label();
+            this.btnNuevaVenta = new System.Windows.Forms.Button();
+            this.dataListadoVentas = new System.Windows.Forms.DataGridView();
             this.botonEditarListado = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListadoProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListadoVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,73 +63,58 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
-            // lblTotalProductos
+            // lblTotalVentas
             // 
-            this.lblTotalProductos.AutoSize = true;
-            this.lblTotalProductos.Location = new System.Drawing.Point(633, 143);
-            this.lblTotalProductos.Name = "lblTotalProductos";
-            this.lblTotalProductos.Size = new System.Drawing.Size(35, 13);
-            this.lblTotalProductos.TabIndex = 31;
-            this.lblTotalProductos.Text = "label2";
+            this.lblTotalVentas.AutoSize = true;
+            this.lblTotalVentas.Location = new System.Drawing.Point(633, 143);
+            this.lblTotalVentas.Name = "lblTotalVentas";
+            this.lblTotalVentas.Size = new System.Drawing.Size(35, 13);
+            this.lblTotalVentas.TabIndex = 31;
+            this.lblTotalVentas.Text = "label2";
             // 
-            // btnNuevoProducto
+            // btnNuevaVenta
             // 
-            this.btnNuevoProducto.Location = new System.Drawing.Point(411, 105);
-            this.btnNuevoProducto.Name = "btnNuevoProducto";
-            this.btnNuevoProducto.Size = new System.Drawing.Size(186, 23);
-            this.btnNuevoProducto.TabIndex = 30;
-            this.btnNuevoProducto.Text = "Nuevo trabajo";
-            this.btnNuevoProducto.UseVisualStyleBackColor = true;
+            this.btnNuevaVenta.Location = new System.Drawing.Point(482, 105);
+            this.btnNuevaVenta.Name = "btnNuevaVenta";
+            this.btnNuevaVenta.Size = new System.Drawing.Size(186, 23);
+            this.btnNuevaVenta.TabIndex = 30;
+            this.btnNuevaVenta.Text = "Nueva venta";
+            this.btnNuevaVenta.UseVisualStyleBackColor = true;
+            this.btnNuevaVenta.Click += new System.EventHandler(this.btnNuevaVenta_Click);
             // 
-            // dataListadoProductos
+            // dataListadoVentas
             // 
-            this.dataListadoProductos.AllowUserToAddRows = false;
-            this.dataListadoProductos.AllowUserToDeleteRows = false;
-            this.dataListadoProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataListadoProductos.Location = new System.Drawing.Point(17, 159);
-            this.dataListadoProductos.MultiSelect = false;
-            this.dataListadoProductos.Name = "dataListadoProductos";
-            this.dataListadoProductos.ReadOnly = true;
-            this.dataListadoProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListadoProductos.Size = new System.Drawing.Size(739, 279);
-            this.dataListadoProductos.TabIndex = 25;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(17, 105);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(181, 20);
-            this.txtBuscar.TabIndex = 27;
-            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
+            this.dataListadoVentas.AllowUserToAddRows = false;
+            this.dataListadoVentas.AllowUserToDeleteRows = false;
+            this.dataListadoVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataListadoVentas.Location = new System.Drawing.Point(17, 159);
+            this.dataListadoVentas.MultiSelect = false;
+            this.dataListadoVentas.Name = "dataListadoVentas";
+            this.dataListadoVentas.ReadOnly = true;
+            this.dataListadoVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataListadoVentas.Size = new System.Drawing.Size(739, 279);
+            this.dataListadoVentas.TabIndex = 25;
+            this.dataListadoVentas.SelectionChanged += new System.EventHandler(this.dataListadoVentas_SelectionChanged);
             // 
             // botonEditarListado
             // 
-            this.botonEditarListado.Location = new System.Drawing.Point(330, 105);
+            this.botonEditarListado.Location = new System.Drawing.Point(17, 105);
             this.botonEditarListado.Name = "botonEditarListado";
             this.botonEditarListado.Size = new System.Drawing.Size(75, 23);
             this.botonEditarListado.TabIndex = 29;
             this.botonEditarListado.Text = "Editar";
             this.botonEditarListado.UseVisualStyleBackColor = true;
+            this.botonEditarListado.Click += new System.EventHandler(this.botonEditarListado_Click_1);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(603, 105);
+            this.btnEliminar.Location = new System.Drawing.Point(98, 105);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(219, 105);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 26;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // pictureBox1
             // 
@@ -142,27 +126,37 @@
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Image = global::CapaPresentacion.Properties.Resources.refresh;
+            this.btnRefrescar.Location = new System.Drawing.Point(723, 93);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(33, 31);
+            this.btnRefrescar.TabIndex = 33;
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click_1);
+            // 
             // formVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblTotalProductos);
-            this.Controls.Add(this.btnNuevoProducto);
-            this.Controls.Add(this.dataListadoProductos);
-            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.lblTotalVentas);
+            this.Controls.Add(this.btnNuevaVenta);
+            this.Controls.Add(this.dataListadoVentas);
             this.Controls.Add(this.botonEditarListado);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formVentas";
             this.Text = "                                                                                 " +
     "                         ..:: Ventas ::..";
+            this.Load += new System.EventHandler(this.formVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListadoProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListadoVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,13 +167,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lblTotalProductos;
-        private System.Windows.Forms.Button btnNuevoProducto;
-        private System.Windows.Forms.DataGridView dataListadoProductos;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label lblTotalVentas;
+        private System.Windows.Forms.Button btnNuevaVenta;
+        private System.Windows.Forms.DataGridView dataListadoVentas;
         private System.Windows.Forms.Button botonEditarListado;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }

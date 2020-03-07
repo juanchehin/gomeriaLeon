@@ -198,5 +198,15 @@ namespace CapaPresentacion
             formProductos formP = new formProductos();
             formP.MostrarProductos();
         }
+
+        private void txtPrecioCompra_MouseHover(object sender, EventArgs e)
+        {
+            this.ttPrecioCompra.SetToolTip(txtPrecioCompra, "Precio al que se esta comprando actualmente el producto");
+        }
+
+        private void txtPrecioVenta_MouseHover(object sender, EventArgs e)
+        {
+            this.ttPrecioVenta.SetToolTip(txtPrecioCompra, "Precio al que se esta vendiendo actualmente el producto");
+        }
     }
 }

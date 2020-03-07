@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,73 +13,67 @@ namespace CapaNegocio
     {
         private CD_Compras objetoCD = new CD_Compras();
 
-        //Método Insertar que llama al método Insertar de la clase DArticulo
+        //Método Insertar que llama al método Insertar de la clase
         //de la CapaDatos
-        public static string Insertar(string Producto, string Codigo, string PrecioCompra, string PrecioVenta, string Descripcion, string Cantidad,string Proveedor)
+        public static string Insertar(string Producto, string Proveedor,string Cantidad)
         {
             // No olvidar sumar al stock de un producto si ya existe
             // Console.WriteLine("En insertar , nombre es " + nombre);
 
-            CD_Productos Obj = new CD_Productos();
-            Obj.Producto = nombre;
-            Obj.Descripcion = Descripcion;
-            Obj.Codigo = Codigo;
-            Obj.PrecioCompra = PrecioCompra;
-            Obj.PrecioVenta = PrecioVenta;
-            Obj.Stock = Stock;
+            CD_Compras Obj = new CD_Compras();
+            Obj.Producto = Producto;
+            Obj.Proveedor = Proveedor;
+            Obj.Cantidad = Cantidad;
 
             return Obj.Insertar(Obj);
         }
 
-        public DataTable MostrarProd()
+        // Devuelve todas las compras habidas y por haber
+        public DataTable MostrarCompras()
         {
 
             DataTable tabla = new DataTable();
-            tabla = objetoCD.Mostrar();
+            tabla = objetoCD.MostrarCompras();
             return tabla;
         }
-        // Devuelve solo un producto
-        public DataTable MostrarProducto(int IdProducto)
+        // Devuelve una compra (unica) dado un Id
+        public DataTable MostrarCompra(int IdCompra)
         {
 
             DataTable tabla = new DataTable();
-            tabla = objetoCD.MostrarProducto(IdProducto);
-            Console.WriteLine("tabla TableName en capa negocio es : " + tabla.TableName);
-            Console.WriteLine("tabla Rows en capa negocio es : " + tabla.Rows);
+            tabla = objetoCD.MostrarCompra(IdCompra);
             return tabla;
         }
-        public static string Eliminar(int IdProducto)
+        public static string Eliminar(int IdCompra)
         {
-            CD_Productos Obj = new CD_Productos();
-            Obj.IdProducto = IdProducto;
+            CD_Compras Obj = new CD_Compras();
+            Obj.IdCompra = IdCompra;
             return Obj.Eliminar(Obj);
         }
 
 
-        public static string Editar(int IdProducto, string Producto, string Codigo, string PrecioCompra, string PrecioVenta, string Descripcion, string Stock)
+        public static string Editar(int IdCompra, string Producto, string Proveedor, string Cantidad)
         {
-            // Console.WriteLine("Produco.IdProducto es 2 : " + IdProducto);
-            CD_Productos Obj = new CD_Productos();
-            Obj.IdProducto = IdProducto;
+            Console.WriteLine("Compra.IdCompra es 2 : " + IdCompra);
+            CD_Compras Obj = new CD_Compras();
+            Obj.IdCompra = IdCompra;
 
             Obj.Producto = Producto;
-            Obj.Codigo = Codigo;
-            Obj.PrecioCompra = PrecioCompra;
-            Obj.PrecioVenta = PrecioVenta;
-            Obj.Descripcion = Descripcion;
-            Obj.Stock = Stock;
+            Obj.Proveedor = Proveedor;
+            Obj.Cantidad = Cantidad;
 
             // Console.WriteLine("Produco.IdProducto es 3 : " + IdProducto);
 
             return Obj.Editar(Obj);
         }
-
-        public DataTable BuscarProducto(string textobuscar)
+        // HACER LA BUSQUEDA QUE SEA ENTRE FECHAS
+        /*
+        public DataTable BuscarCompra(string textobuscar)
         {
             Console.WriteLine("textobuscar en capa negocio es : " + textobuscar);
             CD_Productos Obj = new CD_Productos();
             Obj.TextoBuscar = textobuscar;
             return Obj.BuscarProducto(Obj);
-        }
+        }*/
     }
 }

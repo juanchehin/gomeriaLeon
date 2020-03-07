@@ -15,12 +15,12 @@ namespace CapaNegocio
 
         //Método Insertar que llama al método Insertar de la clase
         //de la CapaDatos
-        public static string Insertar(int IdTrabajo, int IdEmpleado,string Fecha,string Cantidad)
+        public static string Insertar(string Trabajo, int IdEmpleado,string Fecha,string Cantidad)
         {
             // Console.WriteLine("En insertar , nombre es " + nombre);
 
             CD_TrabajosEmpleado Obj = new CD_TrabajosEmpleado();
-            Obj.IdTrabajo = IdTrabajo;
+            Obj.IdTrabajo = Trabajo;
             Obj.IdEmpleado = IdEmpleado;
             Obj.Fecha = Fecha;
             Obj.Cantidad = Cantidad;

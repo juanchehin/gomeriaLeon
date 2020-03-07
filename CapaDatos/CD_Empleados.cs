@@ -17,7 +17,7 @@ namespace CapaDatos
         private string _EstadoEmp;
         private string _Direccion;
         private string _Telefono;
-        private DateTime _FechaNac;
+        private string _FechaNac;
 
         private string _TextoBuscar;
 
@@ -31,7 +31,7 @@ namespace CapaDatos
         public string Direccion { get => _Direccion; set => _Direccion = value; }
         public string Telefono { get => _Telefono; set => _Telefono = value; }
         public string TextoBuscar { get => _TextoBuscar; set => _TextoBuscar = value; }
-        public DateTime FechaNac { get => _FechaNac; set => _FechaNac = value; }
+        public string FechaNac { get => _FechaNac; set => _FechaNac = value; }
 
         //Constructores
         public CD_Empleados()
@@ -39,7 +39,7 @@ namespace CapaDatos
 
         }
 
-        public CD_Empleados(int IdEmpleado, string Nombre, string Apellidos, string DNI, string EstadoEmp, string Direccion,string Telefono,DateTime FechaNac)
+        public CD_Empleados(int IdEmpleado, string Nombre, string Apellidos, string DNI, string EstadoEmp, string Direccion,string Telefono, string FechaNac)
         {
             this.IdEmpleado = IdEmpleado;
             this.Nombre = Nombre;
@@ -127,8 +127,8 @@ namespace CapaDatos
 
                 MySqlParameter pFechaNac = new MySqlParameter();
                 pFechaNac.ParameterName = "@pFechaNac";
-                pFechaNac.MySqlDbType = MySqlDbType.Date;
-                // pFechaNac.Size = 40;
+                pFechaNac.MySqlDbType = MySqlDbType.VarChar;
+                pFechaNac.Size = 40;
                 pFechaNac.Value = Empleado.FechaNac;
                 comando.Parameters.Add(pFechaNac);
 
@@ -243,11 +243,13 @@ namespace CapaDatos
                 comando.Parameters.Add(pTelefono);
 
                 MySqlParameter pFechaNac = new MySqlParameter();
-                pFechaNac.ParameterName = "@pDescripcion";
-                pFechaNac.MySqlDbType = MySqlDbType.Date;
-                // pFechaNac.Size = 60;
+                pFechaNac.ParameterName = "@pFechaNac";
+                pFechaNac.MySqlDbType = MySqlDbType.VarChar;
+                pFechaNac.Size = 60;
                 pFechaNac.Value = Empleado.FechaNac;
                 comando.Parameters.Add(pFechaNac);
+
+
 
                 // Console.WriteLine("comando.Executeexe() es : " + comando.ExecuteReader().ToString());
 
@@ -335,5 +337,7 @@ namespace CapaDatos
             return tabla;
 
         }
+
+
     }
 }

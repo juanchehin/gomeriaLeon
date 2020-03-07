@@ -89,6 +89,8 @@ namespace CapaDatos
 
                 rpta = (string)comando.ExecuteScalar();
 
+                Console.WriteLine("rta es : ..... **** " + rpta);
+
                 if (rpta == "El Trabajo es obligatorio.")
                 {
                     rpta = "El Trabajo es obligatorio.";

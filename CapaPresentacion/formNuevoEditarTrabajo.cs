@@ -91,7 +91,7 @@ namespace CapaPresentacion
                 {
                     if (this.IsNuevo)
                     {
-                        rpta = CN_Trabajos.Insertar(this.txtNombreTrabajo.Text.Trim(), this.txtPrecioUnitario.Text.Trim());
+                        rpta = CN_Trabajos.Insertar(this.txtNombreTrabajo.Text, this.txtPrecioUnitario.Text);
                     }
                     else
                     {

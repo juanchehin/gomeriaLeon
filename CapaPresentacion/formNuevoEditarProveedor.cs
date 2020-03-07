@@ -104,7 +104,7 @@ namespace CapaPresentacion
                             this.txtTelefono.Text.Trim());
                     }
 
-                    if (rpta.Equals("OK"))
+                    if (rpta.Equals("Ok"))
                     {
                         if (this.IsNuevo)
                         {

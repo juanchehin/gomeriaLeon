@@ -48,24 +48,30 @@ namespace CapaPresentacion
             Console.WriteLine("Respuesta es ; " + respuesta.Rows.Count);
             foreach (DataRow row in respuesta.Rows)
             {
-                Console.WriteLine("row es :" + row["Nombre"]);
-
                 IdEmpleado = Convert.ToInt32(row["IdEmpleado"]);
                 Nombre = Convert.ToString(row["Nombre"]);
                 Apellidos = Convert.ToString(row["Apellidos"]);
                 DNI = Convert.ToString(row["DNI"]);
                 Direccion = Convert.ToString(row["Direccion"]);
                 Telefono = Convert.ToString(row["Telefono"]);
-                FechaNac = Convert.ToDateTime(row["Fecha de nacimiento"]);
-
+                if(row["Fecha de nacimiento"] == DBNull.Value)
+                {
+                    FechaNac = Convert.ToDateTime("2010-12-25");
+                    dtFechaNac.Value = FechaNac;
+                }
+                else
+                {
+                    FechaNac = Convert.ToDateTime(row["Fecha de nacimiento"]);
+                    dtFechaNac.Value = FechaNac;
+                    
+                }
 
                 txtNombre.Text = Nombre;
-
                 txtApellidos.Text = Apellidos;
                 txtDNI.Text = DNI;
                 txtDireccion.Text = Direccion;
                 txtTelefono.Text = Telefono;
-                dtFechaNac.Value = FechaNac;
+                
 
             }
         }
@@ -83,13 +89,28 @@ namespace CapaPresentacion
                 {
                     if (this.IsNuevo)
                     {
+                        var año = this.dtFechaNac.Value.Year;
+                        var mes = this.dtFechaNac.Value.Month;
+                        var dia = this.dtFechaNac.Value.Day;
+                        var fecha = año + "-" + mes + "-" + dia;
+
                         rpta = CN_Empleados.Insertar(this.txtNombre.Text.Trim(), this.txtApellidos.Text.Trim(), this.txtDNI.Text.Trim(),
-                            this.txtDireccion.Text.Trim(),this.txtTelefono.Text.Trim(),this.dtFechaNac.Value);
+                            this.txtDireccion.Text.Trim(),this.txtTelefono.Text.Trim(), fecha);
                     }
                     else
                     {
+                        var año = this.dtFechaNac.Value.Year;
+                        var mes = this.dtFechaNac.Value.Month;
+                        var dia = this.dtFechaNac.Value.Day;
+                        var fecha = año + "-" + mes + "-" + dia;
+
+                        Console.WriteLine("año de nacimiento es " + año);
+                        Console.WriteLine("mes de nacimiento es " + mes);
+                        Console.WriteLine("dia de nacimiento es " + dia);
+
+                        Console.WriteLine("Fecha de nacimiento es " + fecha);
                         rpta = CN_Empleados.Editar(this.IdEmpleado, this.txtNombre.Text.Trim(), this.txtApellidos.Text.Trim(),
-                            this.txtDNI.Text.Trim(),this.txtDireccion.Text.Trim(), this.txtTelefono.Text.Trim(), this.dtFechaNac.Value);
+                            this.txtDNI.Text.Trim(),this.txtDireccion.Text.Trim(), this.txtTelefono.Text.Trim(), fecha);
                     }
 
                     if (rpta.Equals("OK"))

@@ -126,12 +126,12 @@ namespace CapaDatos
                 SqlCmd.CommandType = CommandType.StoredProcedure; */
 
 
-                MySqlParameter pNombre = new MySqlParameter();
-                pNombre.ParameterName = "@pProducto";
-                pNombre.MySqlDbType = MySqlDbType.VarChar;
-                pNombre.Size = 60;
-                pNombre.Value = Producto.Producto;
-                comando.Parameters.Add(pNombre);
+                MySqlParameter pProducto = new MySqlParameter();
+                pProducto.ParameterName = "@pProducto";
+                pProducto.MySqlDbType = MySqlDbType.VarChar;
+                pProducto.Size = 60;
+                pProducto.Value = Producto.Producto;
+                comando.Parameters.Add(pProducto);
 
                 MySqlParameter pCodigo = new MySqlParameter();
                 pCodigo.ParameterName = "@pCodigo";

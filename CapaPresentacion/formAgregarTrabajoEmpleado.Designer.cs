@@ -41,6 +41,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.cbClientes = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -80,7 +84,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 37);
+            this.label3.Location = new System.Drawing.Point(16, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 1;
@@ -88,7 +92,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(161, 103);
+            this.txtCantidad.Location = new System.Drawing.Point(83, 103);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(196, 20);
             this.txtCantidad.TabIndex = 2;
@@ -96,7 +100,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 103);
+            this.label2.Location = new System.Drawing.Point(16, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 17;
@@ -104,6 +108,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtFecha);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cbClientes);
             this.groupBox1.Controls.Add(this.cbTrabajos);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtCantidad);
@@ -120,11 +128,10 @@
             // cbTrabajos
             // 
             this.cbTrabajos.FormattingEnabled = true;
-            this.cbTrabajos.Location = new System.Drawing.Point(161, 37);
+            this.cbTrabajos.Location = new System.Drawing.Point(83, 37);
             this.cbTrabajos.Name = "cbTrabajos";
             this.cbTrabajos.Size = new System.Drawing.Size(196, 21);
             this.cbTrabajos.TabIndex = 18;
-//             this.cbTrabajos.SelectedIndexChanged += new System.EventHandler(this.cbTrabajos_SelectedIndexChanged);
             // 
             // pictureBox2
             // 
@@ -165,6 +172,43 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // cbClientes
+            // 
+            this.cbClientes.FormattingEnabled = true;
+            this.cbClientes.Location = new System.Drawing.Point(419, 37);
+            this.cbClientes.Name = "cbClientes";
+            this.cbClientes.Size = new System.Drawing.Size(200, 21);
+            this.cbClientes.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(363, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Cliente :";
+            // 
+            // dtFecha
+            // 
+            this.dtFecha.CustomFormat = "";
+            this.dtFecha.Location = new System.Drawing.Point(419, 103);
+            this.dtFecha.MaxDate = new System.DateTime(2020, 3, 6, 0, 0, 0, 0);
+            this.dtFecha.MinDate = new System.DateTime(1930, 12, 31, 0, 0, 0, 0);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtFecha.TabIndex = 27;
+            this.dtFecha.Value = new System.DateTime(2020, 3, 6, 0, 0, 0, 0);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(363, 106);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Fecha :";
             // 
             // formAgregarTrabajoEmpleado
             // 
@@ -209,5 +253,9 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbClientes;
+        private System.Windows.Forms.DateTimePicker dtFecha;
+        private System.Windows.Forms.Label label5;
     }
 }

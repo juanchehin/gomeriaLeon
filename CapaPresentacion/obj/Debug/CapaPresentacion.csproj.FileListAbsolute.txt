@@ -36,3 +36,5 @@ D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacio
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formInformacion.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarTrabajo.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarProveedor.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarCompra.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarVenta.resources

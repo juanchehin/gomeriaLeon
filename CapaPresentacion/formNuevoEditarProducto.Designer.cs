@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formNuevoEditarProducto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -48,6 +49,8 @@
             this.lblEditarNuevo = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ttPrecioCompra = new System.Windows.Forms.ToolTip(this.components);
+            this.ttPrecioVenta = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,6 +111,7 @@
             this.txtPrecioCompra.Size = new System.Drawing.Size(100, 20);
             this.txtPrecioCompra.TabIndex = 5;
             this.txtPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
+            this.txtPrecioCompra.MouseHover += new System.EventHandler(this.txtPrecioCompra_MouseHover);
             // 
             // txtPrecioVenta
             // 
@@ -116,6 +120,7 @@
             this.txtPrecioVenta.Size = new System.Drawing.Size(100, 20);
             this.txtPrecioVenta.TabIndex = 6;
             this.txtPrecioVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioVenta_KeyPress);
+            this.txtPrecioVenta.MouseHover += new System.EventHandler(this.txtPrecioVenta_MouseHover);
             // 
             // lblPrecioVenta
             // 
@@ -285,5 +290,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblEditarNuevo;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolTip ttPrecioCompra;
+        private System.Windows.Forms.ToolTip ttPrecioVenta;
     }
 }

@@ -34,21 +34,20 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTotalCompras = new System.Windows.Forms.Label();
             this.btnNuevaCompra = new System.Windows.Forms.Button();
-            this.dataListadoProductos = new System.Windows.Forms.DataGridView();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.dataListadoCompras = new System.Windows.Forms.DataGridView();
             this.botonEditarListado = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListadoProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListadoCompras)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(246, -2);
+            this.label1.Location = new System.Drawing.Point(226, -2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(311, 91);
             this.label1.TabIndex = 5;
@@ -85,7 +84,7 @@
             // 
             // btnNuevaCompra
             // 
-            this.btnNuevaCompra.Location = new System.Drawing.Point(413, 105);
+            this.btnNuevaCompra.Location = new System.Drawing.Point(533, 109);
             this.btnNuevaCompra.Name = "btnNuevaCompra";
             this.btnNuevaCompra.Size = new System.Drawing.Size(186, 23);
             this.btnNuevaCompra.TabIndex = 37;
@@ -93,67 +92,61 @@
             this.btnNuevaCompra.UseVisualStyleBackColor = true;
             this.btnNuevaCompra.Click += new System.EventHandler(this.btnNuevaCompra_Click);
             // 
-            // dataListadoProductos
+            // dataListadoCompras
             // 
-            this.dataListadoProductos.AllowUserToAddRows = false;
-            this.dataListadoProductos.AllowUserToDeleteRows = false;
-            this.dataListadoProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataListadoProductos.Location = new System.Drawing.Point(19, 159);
-            this.dataListadoProductos.MultiSelect = false;
-            this.dataListadoProductos.Name = "dataListadoProductos";
-            this.dataListadoProductos.ReadOnly = true;
-            this.dataListadoProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListadoProductos.Size = new System.Drawing.Size(739, 279);
-            this.dataListadoProductos.TabIndex = 32;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(19, 105);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(181, 20);
-            this.txtBuscar.TabIndex = 34;
-            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
+            this.dataListadoCompras.AllowUserToAddRows = false;
+            this.dataListadoCompras.AllowUserToDeleteRows = false;
+            this.dataListadoCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataListadoCompras.Location = new System.Drawing.Point(19, 159);
+            this.dataListadoCompras.MultiSelect = false;
+            this.dataListadoCompras.Name = "dataListadoCompras";
+            this.dataListadoCompras.ReadOnly = true;
+            this.dataListadoCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataListadoCompras.Size = new System.Drawing.Size(739, 279);
+            this.dataListadoCompras.TabIndex = 32;
+            this.dataListadoCompras.SelectionChanged += new System.EventHandler(this.dataListadoProductos_SelectionChanged);
             // 
             // botonEditarListado
             // 
-            this.botonEditarListado.Location = new System.Drawing.Point(332, 105);
+            this.botonEditarListado.Location = new System.Drawing.Point(19, 105);
             this.botonEditarListado.Name = "botonEditarListado";
             this.botonEditarListado.Size = new System.Drawing.Size(75, 23);
             this.botonEditarListado.TabIndex = 36;
             this.botonEditarListado.Text = "Editar";
             this.botonEditarListado.UseVisualStyleBackColor = true;
+            this.botonEditarListado.Click += new System.EventHandler(this.botonEditarListado_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(605, 105);
+            this.btnEliminar.Location = new System.Drawing.Point(100, 105);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 35;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnBuscar
+            // btnRefrescar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(221, 105);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 33;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnRefrescar.Image = global::CapaPresentacion.Properties.Resources.refresh;
+            this.btnRefrescar.Location = new System.Drawing.Point(725, 101);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(33, 31);
+            this.btnRefrescar.TabIndex = 39;
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // formCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.lblTotalCompras);
             this.Controls.Add(this.btnNuevaCompra);
-            this.Controls.Add(this.dataListadoProductos);
-            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.dataListadoCompras);
             this.Controls.Add(this.botonEditarListado);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -161,9 +154,10 @@
             this.Name = "formCompras";
             this.Text = "                                                                                 " +
     "                              ..:: Compras ::..";
+            this.Load += new System.EventHandler(this.formCompras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListadoProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListadoCompras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,10 +169,9 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblTotalCompras;
         private System.Windows.Forms.Button btnNuevaCompra;
-        private System.Windows.Forms.DataGridView dataListadoProductos;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.DataGridView dataListadoCompras;
         private System.Windows.Forms.Button botonEditarListado;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }

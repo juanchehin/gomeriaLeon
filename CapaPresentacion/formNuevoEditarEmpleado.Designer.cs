@@ -108,10 +108,14 @@
             // 
             // dtFechaNac
             // 
+            this.dtFechaNac.CustomFormat = "";
             this.dtFechaNac.Location = new System.Drawing.Point(512, 164);
+            this.dtFechaNac.MaxDate = new System.DateTime(2020, 3, 6, 0, 0, 0, 0);
+            this.dtFechaNac.MinDate = new System.DateTime(1930, 12, 31, 0, 0, 0, 0);
             this.dtFechaNac.Name = "dtFechaNac";
             this.dtFechaNac.Size = new System.Drawing.Size(200, 20);
             this.dtFechaNac.TabIndex = 25;
+            this.dtFechaNac.Value = new System.DateTime(2020, 3, 6, 0, 0, 0, 0);
             // 
             // label7
             // 

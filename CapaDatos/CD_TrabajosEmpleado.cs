@@ -10,17 +10,17 @@ namespace CapaDatos
 {
     public class CD_TrabajosEmpleado
     {
-        private int _IdTrabajo;
+        private string _Trabajo;
         private int _IdEmpleado;
         private string _Fecha;
         private string _Cantidad;
 
         private string _TextoBuscar;
 
-        public int IdTrabajo { get => _IdTrabajo; set => _IdTrabajo = value; }
         public int IdEmpleado { get => _IdEmpleado; set => _IdEmpleado = value; }
         public string Fecha { get => _Fecha; set => _Fecha = value; }
         public string Cantidad { get => _Cantidad; set => _Cantidad = value; }
+        public string Trabajo { get => _Trabajo; set => _Trabajo = value; }
 
         //Constructores
         public CD_TrabajosEmpleado()
@@ -28,9 +28,9 @@ namespace CapaDatos
 
         }
 
-        public CD_TrabajosEmpleado(int IdTrabajo, int IdEmpleado, string Fecha,string Cantidad)
+        public CD_TrabajosEmpleado(string Trabajo, int IdEmpleado, string Fecha,string Cantidad)
         {
-            this.IdTrabajo = IdTrabajo;
+            this.Trabajo = Trabajo;
             this.IdEmpleado = IdEmpleado;
             this.Fecha = Fecha;
             this.Cantidad = Cantidad;
@@ -90,12 +90,12 @@ namespace CapaDatos
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.CommandText = "bsp_alta_trabajo_empleado";
 
-                MySqlParameter pIdTrabajo = new MySqlParameter();
-                pIdTrabajo.ParameterName = "@pIdTrabajo";
-                pIdTrabajo.MySqlDbType = MySqlDbType.Int32;
-                // pIdTrabajo.Size = 60;
-                pIdTrabajo.Value = TrabajosEmpleado.IdTrabajo;
-                comando.Parameters.Add(pIdTrabajo);
+                MySqlParameter pTrabajo = new MySqlParameter();
+                pTrabajo.ParameterName = "@pTrabajo";
+                pTrabajo.MySqlDbType = MySqlDbType.VarChar;
+                pTrabajo.Size = 60;
+                pTrabajo.Value = TrabajosEmpleado.Trabajo;
+                comando.Parameters.Add(pTrabajo);
 
                 // Console.WriteLine("pNombre es : " + pNombre.Value);
 

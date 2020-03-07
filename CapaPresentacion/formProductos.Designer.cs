@@ -40,6 +40,7 @@
             this.dataListadoProductos = new System.Windows.Forms.DataGridView();
             this.lblTotalProductos = new System.Windows.Forms.Label();
             this.btnRefrescar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoProductos)).BeginInit();
@@ -157,11 +158,21 @@
             this.btnRefrescar.UseVisualStyleBackColor = true;
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(34, 168);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Busqueda por codigo o producto";
+            // 
             // formProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 564);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.lblTotalProductos);
             this.Controls.Add(this.btnNuevoProducto);
@@ -198,6 +209,7 @@
         private System.Windows.Forms.DataGridView dataListadoProductos;
         private System.Windows.Forms.Label lblTotalProductos;
         private System.Windows.Forms.Button btnRefrescar;
+        private System.Windows.Forms.Label label2;
     }
 }
 
