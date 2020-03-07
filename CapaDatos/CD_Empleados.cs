@@ -72,7 +72,9 @@ namespace CapaDatos
 
             leer = comando.ExecuteReader();
             tabla.Load(leer);
-            // conexion.CerrarConexion();
+            comando.Parameters.Clear();// si no ponerlo al comienzo de esta funcion
+
+            conexion.CerrarConexion();
             return tabla;
 
         }

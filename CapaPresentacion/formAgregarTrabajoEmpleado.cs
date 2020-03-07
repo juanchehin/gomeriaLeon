@@ -18,7 +18,7 @@ namespace CapaPresentacion
         CN_Trabajos objetoCN_trabajos = new CN_Trabajos();
 
         private int IdEmpleado;
-        bool IsNuevo = false;
+        // bool IsNuevo = false;
 
         private DataTable respuesta;
         private DataTable respuesta_trabajos;
@@ -81,49 +81,39 @@ namespace CapaPresentacion
             }
         }
 
-        // Defino valores para usar en el metodo cargar empleados
-        DataTable clientes;
-        CN_Clientes objetoCN_Cliente = new CN_Clientes();
-        private string clienteActual;
-
-        // Cargo los Proveedores en el comboBox
-        private void CargarClientesComboBox()
-        {
-
-            clientes = objetoCN_Cliente.MostrarClientes();
-
-            cbClientes.DataSource = clientes;
-
-            // cbTrabajos.ValueMember = cbTrabajos;
-            // Console.WriteLine(" cbTrabajos.ValueMember es  " + cbEmpleados.ValueMember);
-            cbClientes.DisplayMember = "Titular";
-            cbClientes.ValueMember = "IdCliente";
-
-            this.clienteActual = cbClientes.ValueMember.ToString();
-        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("En insertar TE btnGuardar_Click ");
+
             this.TrabajoActual = cbTrabajos.Text;
             try
             {
                 string rpta = "";
-                if (this.cbClientes.Text == string.Empty || this.cbTrabajos.Text == string.Empty || this.txtCantidad.Text == string.Empty)
+                if (this.cbTrabajos.Text == string.Empty || this.txtCantidad.Text == string.Empty)
                 {
                     MensajeError("Falta ingresar algunos datos");
                 }
                 else
                 {
-                    if (this.IsNuevo)
-                    {   // int IdTrabajo, int IdEmpleado,string Fecha,string Cantidad
-                        rpta = CN_TrabajosEmpleado.Insertar(this.TrabajoActual,this.IdEmpleado,this.dtFecha,this.txtCantidad.Text);
-                    }
-                    else
-                    {
-                        rpta = CN_TrabajosEmpleado.Editar(this.IdCliente, this.txtTitular.Text.Trim(), this.txtTransporte.Text.Trim(), this.txtTelefono.Text.Trim());
-                    }
+                    Console.WriteLine("En insertar TE btnGuardar_Click 2");
+                    var año = this.dtFecha.Value.Year;
+                    var mes = this.dtFecha.Value.Month;
+                    var dia = this.dtFecha.Value.Day;
+                    var fecha = año + "-" + mes + "-" + dia;
+                    // if (this.IsNuevo)
+                    // {   int IdTrabajo, int IdEmpleado,string Fecha,string Cantidad
 
-                    if (rpta.Equals("OK"))
+                        Console.WriteLine("En insertar TE btnGuardar_Click fecha " + fecha);
+
+                        rpta = CN_TrabajosEmpleado.Insertar(this.TrabajoActual,this.IdEmpleado,this.txtCantidad.Text, fecha);
+                    
+                    /*else
+                    {
+                        rpta = CN_TrabajosEmpleado.Editar(this.TrabajoActual, this.IdEmpleado,this.txtCantidad.Text, fecha);
+                    }*/
+
+                    if (rpta.Equals("Ok"))
                     {
                      this.MensajeOk("Se Insertó de forma correcta el registro");
                     }
@@ -131,7 +121,7 @@ namespace CapaPresentacion
                     {
                         this.MensajeError(rpta);
                     }
-
+                    this.Close();
                 }
             }
             catch (Exception ex)

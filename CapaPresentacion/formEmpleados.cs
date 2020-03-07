@@ -228,6 +228,7 @@ namespace CapaPresentacion
 
         private void btnAgregarTrabajos_Click(object sender, EventArgs e)
         {
+            this.Close();
             formTrabajosEmpleado frm = new formTrabajosEmpleado(this.IdEmpleado);
             frm.MdiParent = this.MdiParent;
             frm.Show();
