@@ -45,7 +45,6 @@ namespace CapaPresentacion
 
         private void btnNuevaVenta_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("this.IdVenta en click nuevo es  : " + this.IdVenta);
             formNuevoEditarVenta frm = new formNuevoEditarVenta(this.IdVenta, true);
             frm.MdiParent = this.MdiParent;
             frm.Show();
@@ -92,7 +91,7 @@ namespace CapaPresentacion
 
         private void formVentas_Load(object sender, EventArgs e)
         {
-            // MostrarVentas();
+            this.MostrarVentas();
         }
 
         private void btnRefrescar_Click_1(object sender, EventArgs e)

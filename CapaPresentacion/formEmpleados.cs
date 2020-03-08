@@ -118,13 +118,12 @@ namespace CapaPresentacion
                     this.MostrarEmpleados();
                     this.MensajeOk("Se elimino de forma correcta el registro");
                 }
-                
+                txtBuscar.Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            this.Close();
         }
 
         private void dataListadoEmpleados_SelectionChanged(object sender, EventArgs e)
@@ -134,13 +133,12 @@ namespace CapaPresentacion
                 int selectedrowindex = dataListadoEmpleados.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataListadoEmpleados.Rows[selectedrowindex];
                 this.IdEmpleado = Convert.ToInt32(selectedRow.Cells["IdEmpleado"].Value);
-                Console.WriteLine("El id producto es " + this.IdEmpleado);
             }
         }
 
         private void btnAgregarTrabajos_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // this.Close();
             formTrabajosEmpleado frm = new formTrabajosEmpleado(this.IdEmpleado);
             frm.MdiParent = this.MdiParent;
             frm.Show();

@@ -226,7 +226,7 @@ namespace CapaDatos
 
                 //Ejecutamos nuestro comando
 
-                rpta = comando.ExecuteScalar().ToString() == "Ok" ? "OK" : "No se edito el Registro";
+                rpta = comando.ExecuteScalar().ToString() == "Ok" ? "Ok" : "No se edito el Registro";
 
 
 

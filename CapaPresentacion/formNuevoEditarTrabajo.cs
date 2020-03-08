@@ -43,7 +43,6 @@ namespace CapaPresentacion
             if (this.bandera)
             {
                 lblEditarNuevo.Text = "Nuevo";
-                // this.MostrarProducto(this.IdProducto);
                 this.IsNuevo = true;
                 this.IsEditar = false;
             }
@@ -60,19 +59,13 @@ namespace CapaPresentacion
         private void MostrarTrabajo(int IdTrabajo)
         {
             respuesta = objetoCN.MostrarTrabajo(IdTrabajo);
-
-            Console.WriteLine("Respuesta es ; " + respuesta.Rows.Count);
             foreach (DataRow row in respuesta.Rows)
             {
                 IdTrabajo = Convert.ToInt32(row["IdTrabajo"]);
                 Trabajo = Convert.ToString(row["Trabajo"]);
                 PrecioUnitario = Convert.ToString(row["Precio Unitario"]);
 
-                Console.WriteLine("Trabajo es ; " + Trabajo);
-                Console.WriteLine("PrecioUnitario es ; " + PrecioUnitario);
-
                 txtNombreTrabajo.Text = Trabajo;
-
                 txtPrecioUnitario.Text = PrecioUnitario;
  
             }

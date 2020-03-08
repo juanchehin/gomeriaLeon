@@ -127,19 +127,19 @@ namespace CapaDatos
 
                 MySqlParameter pCantidad = new MySqlParameter();
                 pCantidad.ParameterName = "@pCantidad";
-                pCantidad.MySqlDbType = MySqlDbType.Int32;  // Ver por que esta definido como string
-                // pCantidad.Size = 60;
+                pCantidad.MySqlDbType = MySqlDbType.VarChar;  // Ver por que esta definido como string
+                pCantidad.Size = 10;
                 pCantidad.Value = Venta.Cantidad;
                 comando.Parameters.Add(pCantidad);
 
                 rpta = (string)comando.ExecuteScalar();//  == "Ok";//  : "NO se Ingreso el Registro";
                 comando.Parameters.Clear();
 
-                if (rpta == "Ok")
+                /*if (rpta == "Ok")
                 {
                     rpta = "Ok";
-                    // return rpta;
-                }
+                    return rpta;
+                }*/
 
             }
             catch (Exception ex)

@@ -104,11 +104,6 @@ namespace CapaPresentacion
                         var dia = this.dtFechaNac.Value.Day;
                         var fecha = año + "-" + mes + "-" + dia;
 
-                        Console.WriteLine("año de nacimiento es " + año);
-                        Console.WriteLine("mes de nacimiento es " + mes);
-                        Console.WriteLine("dia de nacimiento es " + dia);
-
-                        Console.WriteLine("Fecha de nacimiento es " + fecha);
                         rpta = CN_Empleados.Editar(this.IdEmpleado, this.txtNombre.Text.Trim(), this.txtApellidos.Text.Trim(),
                             this.txtDNI.Text.Trim(),this.txtDireccion.Text.Trim(), this.txtTelefono.Text.Trim(), fecha);
                     }
@@ -123,19 +118,20 @@ namespace CapaPresentacion
                         {
                             this.MensajeOk("Se Actualizó de forma correcta el registro");
                         }
+                        this.Close();
                     }
+                    
                     else
                     {
                         this.MensajeError(rpta);
                     }
-
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            this.Close();
+            
         }
 
 

@@ -37,14 +37,12 @@ namespace CapaDatos
         }
         private CD_Conexion conexion = new CD_Conexion();
 
-        /*MySqlDataReader leer;
-        DataTable tabla = new DataTable(); */
+
         MySqlCommand comando = new MySqlCommand(); 
 
         public string Login(CD_Usuarios Usuario)
         {
-            // DataTable DtResultado = new DataTable("trabajador");
-            // SqlConnection SqlCon = new SqlConnection();
+
             string rpta = "";
             try
             {
@@ -66,15 +64,7 @@ namespace CapaDatos
                 pPassword.Value = Usuario.Password;
                 comando.Parameters.Add(pPassword);
 
-                Console.WriteLine("pUsuario es " + pUsuario.Value);
-                Console.WriteLine("pPassword es " + pPassword.Value);
-
-                Console.WriteLine("comando.ExecuteNonQuery() es " + comando.ExecuteScalar());
-
                 rpta = comando.ExecuteScalar().ToString() == "Ok" ? "Ok" : "Error de login";
-
-                // MySqlDataAdapter MySqlDat = new MySqlDataAdapter(comando);
-                // MySqlDat.Fill(DtResultado);
 
             }
             catch (Exception ex)

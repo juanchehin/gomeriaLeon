@@ -22,6 +22,7 @@ namespace CapaPresentacion
         public formTrabajos()
         {
             InitializeComponent();
+            MostrarTrabajos();
         }
 
         private void MostrarTrabajos()
@@ -84,7 +85,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            this.Close();
         }
 
         private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
@@ -125,7 +125,7 @@ namespace CapaPresentacion
             formNuevoEditarTrabajo frm = new formNuevoEditarTrabajo(this.IdTrabajo, false);
             frm.MdiParent = this.MdiParent;
             frm.Show();
-            this.Close();
+            // this.Close();
         }
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
@@ -146,7 +146,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            this.Close();
         }
 
         private void formTrabajos_Load(object sender, EventArgs e)

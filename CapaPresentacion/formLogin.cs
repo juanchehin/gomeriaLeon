@@ -15,6 +15,7 @@ namespace CapaPresentacion
         public formLogin()
         {
             InitializeComponent();
+            txtUsuario.Focus();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -35,7 +36,6 @@ namespace CapaPresentacion
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             string Datos = CapaNegocio.CN_Usuarios.Login(this.txtUsuario.Text, this.txtPassword.Text);
-            Console.WriteLine("Datos es : " + Datos);
             //Evaluar si existe el Usuario
             if (Datos != "Ok")
             {
@@ -44,11 +44,6 @@ namespace CapaPresentacion
             else
             {
                 frmPrincipal frm = new frmPrincipal();
-                /* frm.Idtrabajador = Datos.Rows[0][0].ToString();
-                frm.Apellidos = Datos.Rows[0][1].ToString();
-                frm.Nombre = Datos.Rows[0][2].ToString();
-                frm.Acceso = Datos.Rows[0][3].ToString(); */
-
                 frm.Show();
                 this.Hide();
 
@@ -57,7 +52,7 @@ namespace CapaPresentacion
 
         private void formLogin_Load(object sender, EventArgs e)
         {
-
+            txtUsuario.Focus();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)

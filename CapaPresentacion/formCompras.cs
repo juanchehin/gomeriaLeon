@@ -37,7 +37,6 @@ namespace CapaPresentacion
 
         private void btnNuevaCompra_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("this.IdProducto en click nuevo es  : " + this.IdCompra);
             formNuevoEditarCompra frm = new formNuevoEditarCompra(this.IdCompra, true);
             frm.MdiParent = this.MdiParent;
             frm.Show();
@@ -50,7 +49,6 @@ namespace CapaPresentacion
                 int selectedrowindex = dataListadoCompras.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataListadoCompras.Rows[selectedrowindex];
                 this.IdCompra = Convert.ToInt32(selectedRow.Cells["IdCompra"].Value);
-                Console.WriteLine("El id producto es " + this.IdCompra);
             }
         }
 
@@ -62,11 +60,9 @@ namespace CapaPresentacion
 
         public void MostrarCompras()
         {
-            // Console.WriteLine("Ahora va el mostrar productos");
             dataListadoCompras.DataSource = objetoCN.MostrarCompras();
             dataListadoCompras.Columns[0].Visible = false;
             lblTotalCompras.Text = "Total de Registros: " + Convert.ToString(dataListadoCompras.Rows.Count);
-            // this.banderaFormularioHijo = false;
         }
 
         private void botonEditarListado_Click(object sender, EventArgs e)

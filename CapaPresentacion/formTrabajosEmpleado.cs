@@ -192,15 +192,15 @@ namespace CapaPresentacion
             e.Graphics.DrawString("Direccion : " + lblDireccion.Text, new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(25, 130));
             e.Graphics.DrawString("Telefono : " + lblTelefono.Text, new Font("Arial", 20,FontStyle.Regular), Brushes.Black, new Point(25, 160));
 
-            e.Graphics.DrawString("______________________________________________________________________________", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 200));
+            e.Graphics.DrawString("______________________________________________________________________________", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new Point(25, 200));
             e.Graphics.DrawString("Trabajos realizados", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new Point(25, 230));  // + 90
             e.Graphics.DrawString("Precio Unitario", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new Point(250, 230));
             e.Graphics.DrawString("Cantidad", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new Point(400, 230));
             e.Graphics.DrawString("Total", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new Point(600, 230));
-            e.Graphics.DrawString("______________________________________________________________________________", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 250));
-            e.Graphics.DrawString("______________________________________________________________________________", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 1030));
-            e.Graphics.DrawString("Total : " + this.total, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(650, 1060));
-            e.Graphics.DrawString("______________________________________________________________________________", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 1100));
+            e.Graphics.DrawString("______________________________________________________________________________", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new Point(25, 250));
+            e.Graphics.DrawString("______________________________________________________________________________", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new Point(25, 1030));
+            e.Graphics.DrawString("Total : " + this.total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new Point(650, 1060));
+            e.Graphics.DrawString("______________________________________________________________________________", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new Point(25, 1100));
 
 
             foreach (DataGridViewRow row in dataListadoTrabajosEmpleado.Rows)

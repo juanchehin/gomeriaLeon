@@ -70,6 +70,7 @@ namespace CapaDatos
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "bsp_dame_empleados";
 
+            tabla.Clear();
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             comando.Parameters.Clear();// si no ponerlo al comienzo de esta funcion

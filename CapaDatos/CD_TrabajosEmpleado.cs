@@ -55,7 +55,7 @@ namespace CapaDatos
         public DataTable Mostrar(int IdEmpleado, string FechaInicio, string FechaFin)
         {
             string rpta = "";
-                        
+
             comando.Parameters.Clear();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandType = CommandType.StoredProcedure;
