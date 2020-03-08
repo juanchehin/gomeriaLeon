@@ -134,8 +134,8 @@ namespace CapaPresentacion
                 {
                     CN_Clientes.Eliminar(this.IdCliente);
                     this.MostrarClientes();
+                    this.MensajeOk("Se elimino de forma correcta el registro");
                 }
-                this.MensajeOk("Se elimino de forma correcta el registro");
             }
             catch (Exception ex)
             {

@@ -28,37 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formTrabajosEmpleado));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblApellidoNombre = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnRefrescar = new System.Windows.Forms.Button();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataListadoTrabajosEmpleado = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnVistaPreviaImprimir = new System.Windows.Forms.Button();
+            this.DVPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.DVPrintDocument = new System.Drawing.Printing.PrintDocument();
+            this.btnRefrescar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ttImprimir = new System.Windows.Forms.ToolTip(this.components);
+            this.ttPreviaImpresion = new System.Windows.Forms.ToolTip(this.components);
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblSubTotal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoTrabajosEmpleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::CapaPresentacion.Properties.Resources.logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 57);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -121,15 +119,6 @@
             this.lblTelefono.TabIndex = 11;
             this.lblTelefono.Text = "label8";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(458, 526);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Imprimir";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblApellidoNombre);
@@ -148,7 +137,7 @@
             // dtFechaInicio
             // 
             this.dtFechaInicio.Location = new System.Drawing.Point(248, 175);
-            this.dtFechaInicio.MaxDate = new System.DateTime(2020, 3, 7, 0, 0, 0, 0);
+            this.dtFechaInicio.MaxDate = new System.DateTime(2199, 11, 29, 0, 0, 0, 0);
             this.dtFechaInicio.Name = "dtFechaInicio";
             this.dtFechaInicio.Size = new System.Drawing.Size(200, 20);
             this.dtFechaInicio.TabIndex = 18;
@@ -157,7 +146,7 @@
             // dtFechaFin
             // 
             this.dtFechaFin.Location = new System.Drawing.Point(248, 223);
-            this.dtFechaFin.MaxDate = new System.DateTime(2020, 3, 7, 0, 0, 0, 0);
+            this.dtFechaFin.MaxDate = new System.DateTime(2109, 12, 24, 0, 0, 0, 0);
             this.dtFechaFin.Name = "dtFechaFin";
             this.dtFechaFin.Size = new System.Drawing.Size(200, 20);
             this.dtFechaFin.TabIndex = 19;
@@ -183,16 +172,6 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "Fecha Fin : ";
             // 
-            // btnRefrescar
-            // 
-            this.btnRefrescar.Image = global::CapaPresentacion.Properties.Resources.refresh;
-            this.btnRefrescar.Location = new System.Drawing.Point(765, 212);
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(33, 31);
-            this.btnRefrescar.TabIndex = 21;
-            this.btnRefrescar.UseVisualStyleBackColor = true;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
-            // 
             // Total
             // 
             this.Total.HeaderText = "Total";
@@ -213,11 +192,94 @@
             this.dataListadoTrabajosEmpleado.Size = new System.Drawing.Size(707, 235);
             this.dataListadoTrabajosEmpleado.TabIndex = 22;
             // 
+            // btnVistaPreviaImprimir
+            // 
+            this.btnVistaPreviaImprimir.BackgroundImage = global::CapaPresentacion.Properties.Resources.printPreview;
+            this.btnVistaPreviaImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnVistaPreviaImprimir.Location = new System.Drawing.Point(695, 566);
+            this.btnVistaPreviaImprimir.Name = "btnVistaPreviaImprimir";
+            this.btnVistaPreviaImprimir.Size = new System.Drawing.Size(46, 37);
+            this.btnVistaPreviaImprimir.TabIndex = 23;
+            this.btnVistaPreviaImprimir.UseVisualStyleBackColor = true;
+            this.btnVistaPreviaImprimir.Click += new System.EventHandler(this.btnVistaPreviaImprimir_Click);
+            this.btnVistaPreviaImprimir.MouseHover += new System.EventHandler(this.btnVistaPreviaImprimir_MouseHover);
+            // 
+            // DVPrintPreviewDialog
+            // 
+            this.DVPrintPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.DVPrintPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.DVPrintPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.DVPrintPreviewDialog.Enabled = true;
+            this.DVPrintPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("DVPrintPreviewDialog.Icon")));
+            this.DVPrintPreviewDialog.Name = "DVPrintPreviewDialog";
+            this.DVPrintPreviewDialog.Visible = false;
+            // 
+            // DVPrintDocument
+            // 
+            this.DVPrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.DVPrintDocument_PrintPage);
+            // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Image = global::CapaPresentacion.Properties.Resources.refresh;
+            this.btnRefrescar.Location = new System.Drawing.Point(765, 212);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(33, 31);
+            this.btnRefrescar.TabIndex = 21;
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackgroundImage = global::CapaPresentacion.Properties.Resources.print;
+            this.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnImprimir.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnImprimir.Location = new System.Drawing.Point(747, 566);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(51, 37);
+            this.btnImprimir.TabIndex = 12;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.button1_Click);
+            this.btnImprimir.MouseHover += new System.EventHandler(this.btnImprimir_MouseHover);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::CapaPresentacion.Properties.Resources.logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 57);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(733, 511);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(67, 17);
+            this.lblTotal.TabIndex = 24;
+            this.lblTotal.Text = "resultado";
+            // 
+            // lblSubTotal
+            // 
+            this.lblSubTotal.AutoSize = true;
+            this.lblSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTotal.Location = new System.Drawing.Point(675, 511);
+            this.lblSubTotal.Name = "lblSubTotal";
+            this.lblSubTotal.Size = new System.Drawing.Size(52, 17);
+            this.lblSubTotal.TabIndex = 25;
+            this.lblSubTotal.Text = "Total : ";
+            // 
             // formTrabajosEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 561);
+            this.ClientSize = new System.Drawing.Size(851, 615);
+            this.Controls.Add(this.lblSubTotal);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.btnVistaPreviaImprimir);
             this.Controls.Add(this.dataListadoTrabajosEmpleado);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.label3);
@@ -225,17 +287,17 @@
             this.Controls.Add(this.dtFechaFin);
             this.Controls.Add(this.dtFechaInicio);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formTrabajosEmpleado";
             this.Text = "                                                                                 " +
     "                         ..:: Trabajos ::.. ";
             this.Load += new System.EventHandler(this.formTrabajosEmpleado_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoTrabajosEmpleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,7 +312,7 @@
         private System.Windows.Forms.Label lblApellidoNombre;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dtFechaInicio;
         private System.Windows.Forms.DateTimePicker dtFechaFin;
@@ -259,5 +321,12 @@
         private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridView dataListadoTrabajosEmpleado;
+        private System.Windows.Forms.Button btnVistaPreviaImprimir;
+        private System.Windows.Forms.PrintPreviewDialog DVPrintPreviewDialog;
+        private System.Drawing.Printing.PrintDocument DVPrintDocument;
+        private System.Windows.Forms.ToolTip ttImprimir;
+        private System.Windows.Forms.ToolTip ttPreviaImpresion;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblSubTotal;
     }
 }

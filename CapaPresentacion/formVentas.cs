@@ -56,7 +56,7 @@ namespace CapaPresentacion
             try
             {
                 DialogResult Opcion;
-                Opcion = MessageBox.Show("Realmente Desea Eliminar la compra", "Gomeria Leon", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                Opcion = MessageBox.Show("Realmente Desea Eliminar la venta", "Gomeria Leon", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (Opcion == DialogResult.OK)
                 {
@@ -69,7 +69,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            this.Close();
+            this.MostrarVentas();
         }
 
         private void botonEditarListado_Click_1(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace CapaPresentacion
                 int selectedrowindex = dataListadoVentas.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataListadoVentas.Rows[selectedrowindex];
                 this.IdVenta = Convert.ToInt32(selectedRow.Cells["IdVenta"].Value);
-                Console.WriteLine("El idVEnta es " + this.IdVenta);
+                // Console.WriteLine("El idVEnta es " + this.IdVenta);
             }
         }
 

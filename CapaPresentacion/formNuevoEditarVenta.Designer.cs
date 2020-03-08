@@ -34,6 +34,8 @@
             this.lblEditarNuevo = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dataListadoEmpleados = new System.Windows.Forms.DataGridView();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.cbClientes = new System.Windows.Forms.ComboBox();
@@ -92,6 +94,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscar);
+            this.groupBox1.Controls.Add(this.txtBuscar);
             this.groupBox1.Controls.Add(this.dataListadoEmpleados);
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.cbClientes);
@@ -107,12 +111,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ventas";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackgroundImage = global::CapaPresentacion.Properties.Resources.searching_magnifying_glass;
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBuscar.Location = new System.Drawing.Point(637, 18);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(94, 23);
+            this.btnBuscar.TabIndex = 10;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(469, 20);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(162, 20);
+            this.txtBuscar.TabIndex = 9;
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
+            // 
             // dataListadoEmpleados
             // 
+            this.dataListadoEmpleados.AllowUserToAddRows = false;
+            this.dataListadoEmpleados.AllowUserToDeleteRows = false;
             this.dataListadoEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataListadoEmpleados.Location = new System.Drawing.Point(469, 48);
             this.dataListadoEmpleados.MultiSelect = false;
             this.dataListadoEmpleados.Name = "dataListadoEmpleados";
+            this.dataListadoEmpleados.ReadOnly = true;
             this.dataListadoEmpleados.Size = new System.Drawing.Size(308, 218);
             this.dataListadoEmpleados.TabIndex = 8;
             this.dataListadoEmpleados.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -241,5 +268,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dataListadoEmpleados;
         private System.Windows.Forms.ComboBox cbProductos;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }

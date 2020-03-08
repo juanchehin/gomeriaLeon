@@ -92,14 +92,15 @@ namespace CapaPresentacion
                 {
                     CN_Compras.Eliminar(this.IdCompra);
                     // this.MostrarProductos();
+                    this.MensajeOk("Se elimino de forma correcta la compra");
                 }
-                this.MensajeOk("Se elimino de forma correcta el registro");
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            this.Close();
+            this.MostrarCompras();
         }
 
         //Mostrar Mensaje de Confirmación generico

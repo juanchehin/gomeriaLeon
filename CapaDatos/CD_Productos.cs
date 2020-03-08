@@ -67,6 +67,7 @@ namespace CapaDatos
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "bsp_dame_productos";
 
+            tabla.Clear();
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();

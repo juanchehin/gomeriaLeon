@@ -15,6 +15,7 @@ namespace CapaPresentacion
     public partial class formNuevoEditarVenta : Form
     {
         CN_Ventas objetoCN = new CN_Ventas();
+        CN_Empleados objetoCN_empleado = new CN_Empleados();
 
 
         DataTable respuesta;
@@ -68,11 +69,6 @@ namespace CapaPresentacion
                 Cantidad = Convert.ToString(row["Cantidad"]);
                 Fecha = Convert.ToDateTime(row["Fecha"]);
 
-
-                Console.WriteLine("IdCompra es : " + IdVenta);
-                Console.WriteLine("Producto es : " + Producto);
-                Console.WriteLine("Titular es : " + Titular);
-                Console.WriteLine("Fecha es : " + Fecha);
 
                 cbProductos.Text = Producto;
                 // dataListadoEmpleados. = Empleado;
@@ -248,6 +244,16 @@ namespace CapaPresentacion
                 this.IdEmpleado = Convert.ToInt32(selectedRow.Cells["IdEmpleado"].Value);
                 Console.WriteLine("El this.IdEmpleado es " + this.IdEmpleado);
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            this.dataListadoEmpleados.DataSource = objetoCN_empleado.BuscarEmpleado(this.txtBuscar.Text);
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.dataListadoEmpleados.DataSource = objetoCN_empleado.BuscarEmpleado(this.txtBuscar.Text);
         }
     }
 }

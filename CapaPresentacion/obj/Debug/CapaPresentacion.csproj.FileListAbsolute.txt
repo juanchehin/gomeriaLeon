@@ -38,3 +38,5 @@ D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacio
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarProveedor.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarCompra.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarVenta.resources
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\RdlCompile.cache
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\RdlCompile.compiled

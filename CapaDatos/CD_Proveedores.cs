@@ -60,6 +60,7 @@ namespace CapaDatos
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "bsp_dame_proveedores";
 
+            tabla.Clear();
             leer = comando.ExecuteReader();
             tabla.Load(leer);
 
@@ -83,6 +84,7 @@ namespace CapaDatos
             pIdProveedor.Value = IdProveedor;
             comando.Parameters.Add(pIdProveedor);
 
+            tabla.Clear();
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             Console.WriteLine("tabla en capa datos es : " + tabla);
@@ -258,7 +260,7 @@ namespace CapaDatos
 
                 //Ejecutamos nuestro comando
 
-                rpta = comando.ExecuteScalar().ToString() == "Ok" ? "OK" : "No se edito el Registro";
+                rpta = comando.ExecuteScalar().ToString() == "Ok" ? "Ok" : "No se edito el Registro";
 
 
 

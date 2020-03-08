@@ -95,14 +95,15 @@ namespace CapaPresentacion
                 {
                     CN_Proveedores.Eliminar(this.IdProveedor);
                     this.MostrarProveedores();
+                    this.MensajeOk("Se elimino de forma correcta el proveedor");
                 }
-                this.MensajeOk("Se elimino de forma correcta el registro");
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            this.Close();
+            // this.Close();
         }
 
         private void MensajeOk(string mensaje)

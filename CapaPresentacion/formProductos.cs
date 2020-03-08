@@ -90,14 +90,15 @@ namespace CapaPresentacion
                 {
                     CN_Productos.Eliminar(this.IdProducto);
                     this.MostrarProductos();
+                    this.MensajeOk("Se elimino de forma correcta el producto");
                 }
-                this.MensajeOk("Se elimino de forma correcta el registro");
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            this.Close();
+            // this.Close();
         }
 
         private void btnNuevoProducto_Click(object sender, EventArgs e)
