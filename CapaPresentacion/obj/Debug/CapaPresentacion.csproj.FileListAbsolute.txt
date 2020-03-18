@@ -1,6 +1,3 @@
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\CapaPresentacion.exe
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\CapaNegocio.dll
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\CapaDatos.dll
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\MySql.Data.dll
@@ -17,8 +14,6 @@ D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacio
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.exe
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formProductos.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formEmpleados.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.frmPrincipal.resources
@@ -38,7 +33,13 @@ D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacio
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarProveedor.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarCompra.resources
 D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formNuevoEditarVenta.resources
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\CapaPresentacion.exe.manifest
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\CapaPresentacion.application
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.exe.manifest
-D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.application
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\LeonGomeria.exe.config
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\LeonGomeria.exe.manifest
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\LeonGomeria.application
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\LeonGomeria.exe
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\bin\Debug\LeonGomeria.pdb
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\LeonGomeria.exe.manifest
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\LeonGomeria.application
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\LeonGomeria.exe
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\LeonGomeria.pdb
+D:\Visual Studio Programs\GomeriaLeon\CapaPresentacion\obj\Debug\CapaPresentacion.formSplashScreen.resources

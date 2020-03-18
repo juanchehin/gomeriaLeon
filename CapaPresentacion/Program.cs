@@ -8,6 +8,9 @@ namespace CapaPresentacion
 {
     static class Program
     {
+        // Bandera usada para cerrar la pantalla de presentacion
+        public static bool OpenDetailFormOnClose { get; set; }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +19,13 @@ namespace CapaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formLogin());   // Cambiar por new formLogin()
+            OpenDetailFormOnClose = false;
+            Application.Run(new formSplashScreen());   // Cambiar por new formLogin()
+
+            if (OpenDetailFormOnClose)
+            {
+                Application.Run(new formLogin());
+            }
         }
     }
 }
