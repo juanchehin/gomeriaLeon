@@ -133,6 +133,7 @@ namespace CapaDatos
                 comando.Parameters.Add(pCantidad);
 
                 rpta = (string)comando.ExecuteScalar();//  == "Ok";//  : "NO se Ingreso el Registro";
+                Console.WriteLine("rpta es : " + rpta);
                 comando.Parameters.Clear();
 
                 /*if (rpta == "Ok")
